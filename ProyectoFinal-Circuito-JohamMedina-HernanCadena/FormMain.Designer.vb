@@ -67,7 +67,7 @@ Partial Class FormMain
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(152, 36)
         Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Simular"
+        Me.Button1.Text = "Simulador"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'FormMain
@@ -76,6 +76,7 @@ Partial Class FormMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Panel1)
+        Me.IsMdiContainer = True
         Me.Name = "FormMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Simulación Circuito"
