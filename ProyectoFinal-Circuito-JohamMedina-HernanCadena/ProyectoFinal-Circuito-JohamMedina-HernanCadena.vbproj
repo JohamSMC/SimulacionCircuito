@@ -53,6 +53,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -80,6 +81,18 @@
       <DependentUpon>FormMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormSimulation.Designer.vb">
+      <DependentUpon>FormSimulation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSimulation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSimulationHistory.Designer.vb">
+      <DependentUpon>FormSimulationHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSimulationHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -99,6 +112,12 @@
   <ItemGroup>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSimulation.resx">
+      <DependentUpon>FormSimulation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSimulationHistory.resx">
+      <DependentUpon>FormSimulationHistory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
