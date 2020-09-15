@@ -23,10 +23,15 @@ Partial Class FormSimulationHistory
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DGV_SimulationHistory = New System.Windows.Forms.DataGridView()
-        Me.Z = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.L = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.C = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ZL = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumeroElementos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ganancia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TipoRespuesta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ElementoZ = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValorZ = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValorL = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValorC = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ElementoZL = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValorZL = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GraficaVoltaje = New System.Windows.Forms.DataGridViewImageColumn()
         Me.GraficaCorriente = New System.Windows.Forms.DataGridViewImageColumn()
         Me.GraficaPotencia = New System.Windows.Forms.DataGridViewImageColumn()
@@ -35,53 +40,109 @@ Partial Class FormSimulationHistory
         '
         'DGV_SimulationHistory
         '
+        Me.DGV_SimulationHistory.AllowUserToAddRows = False
+        Me.DGV_SimulationHistory.AllowUserToDeleteRows = False
+        Me.DGV_SimulationHistory.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DGV_SimulationHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DGV_SimulationHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DGV_SimulationHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV_SimulationHistory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Z, Me.L, Me.C, Me.ZL, Me.GraficaVoltaje, Me.GraficaCorriente, Me.GraficaPotencia})
+        Me.DGV_SimulationHistory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumeroElementos, Me.Ganancia, Me.TipoRespuesta, Me.ElementoZ, Me.ValorZ, Me.ValorL, Me.ValorC, Me.ElementoZL, Me.ValorZL, Me.GraficaVoltaje, Me.GraficaCorriente, Me.GraficaPotencia})
         Me.DGV_SimulationHistory.Location = New System.Drawing.Point(12, 12)
         Me.DGV_SimulationHistory.Name = "DGV_SimulationHistory"
-        Me.DGV_SimulationHistory.Size = New System.Drawing.Size(1060, 657)
+        Me.DGV_SimulationHistory.ReadOnly = True
+        Me.DGV_SimulationHistory.Size = New System.Drawing.Size(1160, 657)
         Me.DGV_SimulationHistory.TabIndex = 0
         '
-        'Z
+        'NumeroElementos
         '
-        Me.Z.HeaderText = "Z"
-        Me.Z.Name = "Z"
+        Me.NumeroElementos.HeaderText = "Numero de Elementos"
+        Me.NumeroElementos.Name = "NumeroElementos"
+        Me.NumeroElementos.ReadOnly = True
+        Me.NumeroElementos.Width = 124
         '
-        'L
+        'Ganancia
         '
-        Me.L.HeaderText = "L"
-        Me.L.Name = "L"
+        Me.Ganancia.HeaderText = "Ganancia"
+        Me.Ganancia.Name = "Ganancia"
+        Me.Ganancia.ReadOnly = True
+        Me.Ganancia.Width = 78
         '
-        'C
+        'TipoRespuesta
         '
-        Me.C.HeaderText = "C"
-        Me.C.Name = "C"
+        Me.TipoRespuesta.HeaderText = "Tipo de Respuesta"
+        Me.TipoRespuesta.Name = "TipoRespuesta"
+        Me.TipoRespuesta.ReadOnly = True
+        Me.TipoRespuesta.Width = 112
         '
-        'ZL
+        'ElementoZ
         '
-        Me.ZL.HeaderText = "ZL"
-        Me.ZL.Name = "ZL"
+        Me.ElementoZ.HeaderText = "Elemento Z"
+        Me.ElementoZ.Name = "ElementoZ"
+        Me.ElementoZ.ReadOnly = True
+        Me.ElementoZ.Width = 79
+        '
+        'ValorZ
+        '
+        Me.ValorZ.HeaderText = "Valor Z"
+        Me.ValorZ.Name = "ValorZ"
+        Me.ValorZ.ReadOnly = True
+        Me.ValorZ.Width = 61
+        '
+        'ValorL
+        '
+        Me.ValorL.HeaderText = "Valor L"
+        Me.ValorL.Name = "ValorL"
+        Me.ValorL.ReadOnly = True
+        Me.ValorL.Width = 60
+        '
+        'ValorC
+        '
+        Me.ValorC.HeaderText = "Valor C"
+        Me.ValorC.Name = "ValorC"
+        Me.ValorC.ReadOnly = True
+        Me.ValorC.Width = 61
+        '
+        'ElementoZL
+        '
+        Me.ElementoZL.HeaderText = "Elemento ZL"
+        Me.ElementoZL.Name = "ElementoZL"
+        Me.ElementoZL.ReadOnly = True
+        Me.ElementoZL.Width = 85
+        '
+        'ValorZL
+        '
+        Me.ValorZL.HeaderText = "Valor ZL"
+        Me.ValorZL.Name = "ValorZL"
+        Me.ValorZL.ReadOnly = True
+        Me.ValorZL.Width = 67
         '
         'GraficaVoltaje
         '
         Me.GraficaVoltaje.HeaderText = "Grafica Voltaje"
         Me.GraficaVoltaje.Name = "GraficaVoltaje"
+        Me.GraficaVoltaje.ReadOnly = True
+        Me.GraficaVoltaje.Width = 74
         '
         'GraficaCorriente
         '
         Me.GraficaCorriente.HeaderText = "Grafica Corriente"
         Me.GraficaCorriente.Name = "GraficaCorriente"
+        Me.GraficaCorriente.ReadOnly = True
+        Me.GraficaCorriente.Width = 83
         '
         'GraficaPotencia
         '
         Me.GraficaPotencia.HeaderText = "Grafica de Potencia"
         Me.GraficaPotencia.Name = "GraficaPotencia"
+        Me.GraficaPotencia.ReadOnly = True
+        Me.GraficaPotencia.Width = 96
         '
         'FormSimulationHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1084, 681)
+        Me.ClientSize = New System.Drawing.Size(1184, 681)
         Me.Controls.Add(Me.DGV_SimulationHistory)
         Me.Name = "FormSimulationHistory"
         Me.Text = "Historial Simulaciones"
@@ -91,10 +152,15 @@ Partial Class FormSimulationHistory
     End Sub
 
     Friend WithEvents DGV_SimulationHistory As DataGridView
-    Friend WithEvents Z As DataGridViewTextBoxColumn
-    Friend WithEvents L As DataGridViewTextBoxColumn
-    Friend WithEvents C As DataGridViewTextBoxColumn
-    Friend WithEvents ZL As DataGridViewTextBoxColumn
+    Friend WithEvents NumeroElementos As DataGridViewTextBoxColumn
+    Friend WithEvents Ganancia As DataGridViewTextBoxColumn
+    Friend WithEvents TipoRespuesta As DataGridViewTextBoxColumn
+    Friend WithEvents ElementoZ As DataGridViewTextBoxColumn
+    Friend WithEvents ValorZ As DataGridViewTextBoxColumn
+    Friend WithEvents ValorL As DataGridViewTextBoxColumn
+    Friend WithEvents ValorC As DataGridViewTextBoxColumn
+    Friend WithEvents ElementoZL As DataGridViewTextBoxColumn
+    Friend WithEvents ValorZL As DataGridViewTextBoxColumn
     Friend WithEvents GraficaVoltaje As DataGridViewImageColumn
     Friend WithEvents GraficaCorriente As DataGridViewImageColumn
     Friend WithEvents GraficaPotencia As DataGridViewImageColumn

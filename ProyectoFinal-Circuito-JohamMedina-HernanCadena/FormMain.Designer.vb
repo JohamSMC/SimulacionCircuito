@@ -23,10 +23,10 @@ Partial Class FormMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Bt_simulationHistory = New System.Windows.Forms.Button()
         Me.Bt_exit = New System.Windows.Forms.Button()
         Me.Bt_pathOctave = New System.Windows.Forms.Button()
         Me.Bt_simulation = New System.Windows.Forms.Button()
-        Me.Bt_simulationHistory = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -41,6 +41,16 @@ Partial Class FormMain
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(172, 450)
         Me.Panel1.TabIndex = 0
+        '
+        'Bt_simulationHistory
+        '
+        Me.Bt_simulationHistory.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Bt_simulationHistory.Location = New System.Drawing.Point(12, 62)
+        Me.Bt_simulationHistory.Name = "Bt_simulationHistory"
+        Me.Bt_simulationHistory.Size = New System.Drawing.Size(152, 64)
+        Me.Bt_simulationHistory.TabIndex = 4
+        Me.Bt_simulationHistory.Text = "Historial Simulación"
+        Me.Bt_simulationHistory.UseVisualStyleBackColor = True
         '
         'Bt_exit
         '
@@ -71,16 +81,6 @@ Partial Class FormMain
         Me.Bt_simulation.TabIndex = 1
         Me.Bt_simulation.Text = "Simulador"
         Me.Bt_simulation.UseVisualStyleBackColor = True
-        '
-        'Bt_simulationHistory
-        '
-        Me.Bt_simulationHistory.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Bt_simulationHistory.Location = New System.Drawing.Point(12, 62)
-        Me.Bt_simulationHistory.Name = "Bt_simulationHistory"
-        Me.Bt_simulationHistory.Size = New System.Drawing.Size(152, 64)
-        Me.Bt_simulationHistory.TabIndex = 4
-        Me.Bt_simulationHistory.Text = "Historial Simulación"
-        Me.Bt_simulationHistory.UseVisualStyleBackColor = True
         '
         'FormMain
         '
