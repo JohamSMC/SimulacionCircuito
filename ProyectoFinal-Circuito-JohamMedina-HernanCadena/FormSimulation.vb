@@ -78,11 +78,11 @@ Public Class FormSimulation
 
         Select Case CB_Z.SelectedIndex
             Case 0
-                vZ = Tb_z.Text
+                'vZ = Tb_z.Text
             Case 1
-                vZ = "1/{(}" & Tb_z.Text & "*s{)}"
+                'vZ = "1/{(}" & Tb_z.Text & "*s{)}"
             Case 2
-                vZ = Tb_z.Text & "*s"
+                'vZ = Tb_z.Text & "*s"
         End Select
 
         cant_elementos = Tb_num.Text
@@ -238,6 +238,9 @@ Public Class FormSimulation
             For i As Integer = 0 To cant_elementos - 1
                 plotPoints()
             Next
+            Chart_V.Series(0).ToolTip = "#VAL{N2}"
+            Chart_I.Series(0).ToolTip = "#VAL{N2}"
+            Chart_P.Series(0).ToolTip = "#VAL{N2}"
             saveSimulationData()
         End If
 
@@ -248,9 +251,21 @@ Public Class FormSimulation
         plotPoints()
         If aux = cant_elementos Then
             Timer1.Enabled = False
+            Chart_V.Series(0).ToolTip = "#VAL{N2}"
+            Chart_I.Series(0).ToolTip = "#VAL{N2}"
+            Chart_P.Series(0).ToolTip = "#VAL{N2}"
             saveSimulationData()
         End If
     End Sub
+
+    Private Sub Tb_MinZ_Scroll(sender As Object, e As EventArgs) Handles Tb_MinZ.Scroll
+        L_MinZ.Text = Tb_MinZ.Value.ToString
+    End Sub
+
+    Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles Tb_MaxZ.Scroll
+        L_MaxZ.Text = Tb_MaxZ.Value.ToString
+    End Sub
+
     Sub plotPoints()
         Chart_V.Series(0).Points.AddXY(Math.Round(vectorT(aux), 2), vectorV(aux))
         Chart_I.Series(0).Points.AddXY(Math.Round(vectorT(aux), 2), vectorI(aux))
@@ -272,7 +287,7 @@ Public Class FormSimulation
         FormSimulationHistory.DGV_SimulationHistory.Item(2, numberRows).Value = Cb_simulationType.Text
 
         FormSimulationHistory.DGV_SimulationHistory.Item(3, numberRows).Value = CB_Z.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(4, numberRows).Value = Tb_z.Text
+        'FormSimulationHistory.DGV_SimulationHistory.Item(4, numberRows).Value = Tb_z.Text
         FormSimulationHistory.DGV_SimulationHistory.Item(5, numberRows).Value = Tb_l.Text
         FormSimulationHistory.DGV_SimulationHistory.Item(6, numberRows).Value = Tb_c.Text
         FormSimulationHistory.DGV_SimulationHistory.Item(7, numberRows).Value = CB_ZL.Text

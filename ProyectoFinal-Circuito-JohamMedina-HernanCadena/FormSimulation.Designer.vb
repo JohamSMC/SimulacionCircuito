@@ -23,15 +23,15 @@ Partial Class FormSimulation
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea10 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title10 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea11 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title11 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea12 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title12 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormSimulation))
         Me.Chart_V = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart_P = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -54,80 +54,89 @@ Partial Class FormSimulation
         Me.Tb_c = New System.Windows.Forms.TextBox()
         Me.Tb_zl = New System.Windows.Forms.TextBox()
         Me.Tb_l = New System.Windows.Forms.TextBox()
-        Me.Tb_z = New System.Windows.Forms.TextBox()
         Me.Cb_simulationType = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Tb_MinZ = New System.Windows.Forms.TrackBar()
+        Me.Tb_MaxZ = New System.Windows.Forms.TrackBar()
+        Me.L_MinZ = New System.Windows.Forms.Label()
+        Me.L_MaxZ = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         CType(Me.Chart_V, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart_P, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart_I, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PB_Z, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PB_ZL, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Tb_MinZ, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Tb_MaxZ, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Chart_V
         '
         Me.Chart_V.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart_V.ChartAreas.Add(ChartArea1)
+        ChartArea10.Name = "ChartArea1"
+        Me.Chart_V.ChartAreas.Add(ChartArea10)
         Me.Chart_V.Location = New System.Drawing.Point(12, 399)
         Me.Chart_V.Name = "Chart_V"
-        Series1.BorderWidth = 3
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series1.Color = System.Drawing.Color.ForestGreen
-        Series1.Name = "Series1"
-        Me.Chart_V.Series.Add(Series1)
+        Series10.BorderWidth = 3
+        Series10.ChartArea = "ChartArea1"
+        Series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series10.Color = System.Drawing.Color.ForestGreen
+        Series10.Name = "Series1"
+        Me.Chart_V.Series.Add(Series10)
         Me.Chart_V.Size = New System.Drawing.Size(330, 250)
         Me.Chart_V.TabIndex = 0
         Me.Chart_V.Text = "Chart1"
-        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title1.Name = "Title1"
-        Title1.Text = "Voltaje"
-        Me.Chart_V.Titles.Add(Title1)
+        Title10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title10.Name = "Title1"
+        Title10.Text = "Voltaje"
+        Me.Chart_V.Titles.Add(Title10)
         '
         'Chart_P
         '
         Me.Chart_P.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart_P.ChartAreas.Add(ChartArea2)
+        ChartArea11.Name = "ChartArea1"
+        Me.Chart_P.ChartAreas.Add(ChartArea11)
         Me.Chart_P.Location = New System.Drawing.Point(742, 399)
         Me.Chart_P.Name = "Chart_P"
-        Series2.BorderWidth = 3
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series2.Color = System.Drawing.Color.Blue
-        Series2.Name = "Series1"
-        Me.Chart_P.Series.Add(Series2)
+        Series11.BorderWidth = 3
+        Series11.ChartArea = "ChartArea1"
+        Series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series11.Color = System.Drawing.Color.Blue
+        Series11.Name = "Series1"
+        Me.Chart_P.Series.Add(Series11)
         Me.Chart_P.Size = New System.Drawing.Size(330, 250)
         Me.Chart_P.TabIndex = 1
         Me.Chart_P.Text = "Chart2"
-        Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title2.Name = "Title1"
-        Title2.Text = "Potencia"
-        Me.Chart_P.Titles.Add(Title2)
+        Title11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title11.Name = "Title1"
+        Title11.Text = "Potencia"
+        Me.Chart_P.Titles.Add(Title11)
         '
         'Chart_I
         '
         Me.Chart_I.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart_I.ChartAreas.Add(ChartArea3)
+        ChartArea12.Name = "ChartArea1"
+        Me.Chart_I.ChartAreas.Add(ChartArea12)
         Me.Chart_I.Location = New System.Drawing.Point(376, 399)
         Me.Chart_I.Name = "Chart_I"
-        Series3.BorderWidth = 3
-        Series3.ChartArea = "ChartArea1"
-        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series3.Color = System.Drawing.Color.Red
-        Series3.Name = "Series1"
-        Me.Chart_I.Series.Add(Series3)
+        Series12.BorderWidth = 3
+        Series12.ChartArea = "ChartArea1"
+        Series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series12.Color = System.Drawing.Color.Red
+        Series12.Name = "Series1"
+        Me.Chart_I.Series.Add(Series12)
         Me.Chart_I.Size = New System.Drawing.Size(330, 250)
         Me.Chart_I.TabIndex = 2
         Me.Chart_I.Text = "Chart3"
-        Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title3.Name = "Title1"
-        Title3.Text = "Corriente"
-        Me.Chart_I.Titles.Add(Title3)
+        Title12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title12.Name = "Title1"
+        Title12.Text = "Corriente"
+        Me.Chart_I.Titles.Add(Title12)
         '
         'PictureBox1
         '
@@ -161,7 +170,7 @@ Partial Class FormSimulation
         Me.CB_Z.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_Z.FormattingEnabled = True
         Me.CB_Z.Items.AddRange(New Object() {"Resistencia", "Condensador", "Bobina"})
-        Me.CB_Z.Location = New System.Drawing.Point(265, 106)
+        Me.CB_Z.Location = New System.Drawing.Point(268, 114)
         Me.CB_Z.Name = "CB_Z"
         Me.CB_Z.Size = New System.Drawing.Size(85, 21)
         Me.CB_Z.TabIndex = 6
@@ -180,7 +189,7 @@ Partial Class FormSimulation
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(159, 102)
+        Me.Label1.Location = New System.Drawing.Point(106, 100)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(26, 25)
         Me.Label1.TabIndex = 8
@@ -292,13 +301,6 @@ Partial Class FormSimulation
         Me.Tb_l.Size = New System.Drawing.Size(36, 20)
         Me.Tb_l.TabIndex = 20
         '
-        'Tb_z
-        '
-        Me.Tb_z.Location = New System.Drawing.Point(206, 107)
-        Me.Tb_z.Name = "Tb_z"
-        Me.Tb_z.Size = New System.Drawing.Size(36, 20)
-        Me.Tb_z.TabIndex = 21
-        '
         'Cb_simulationType
         '
         Me.Cb_simulationType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -324,14 +326,93 @@ Partial Class FormSimulation
         '
         Me.Timer1.Interval = 1
         '
+        'Tb_MinZ
+        '
+        Me.Tb_MinZ.LargeChange = 1
+        Me.Tb_MinZ.Location = New System.Drawing.Point(96, 14)
+        Me.Tb_MinZ.Maximum = 3
+        Me.Tb_MinZ.Minimum = 1
+        Me.Tb_MinZ.Name = "Tb_MinZ"
+        Me.Tb_MinZ.Orientation = System.Windows.Forms.Orientation.Vertical
+        Me.Tb_MinZ.Size = New System.Drawing.Size(45, 57)
+        Me.Tb_MinZ.TabIndex = 5
+        Me.Tb_MinZ.Value = 1
+        '
+        'Tb_MaxZ
+        '
+        Me.Tb_MaxZ.LargeChange = 1
+        Me.Tb_MaxZ.Location = New System.Drawing.Point(314, 21)
+        Me.Tb_MaxZ.Maximum = 6
+        Me.Tb_MaxZ.Minimum = 3
+        Me.Tb_MaxZ.Name = "Tb_MaxZ"
+        Me.Tb_MaxZ.Orientation = System.Windows.Forms.Orientation.Vertical
+        Me.Tb_MaxZ.Size = New System.Drawing.Size(45, 57)
+        Me.Tb_MaxZ.TabIndex = 24
+        Me.Tb_MaxZ.TickStyle = System.Windows.Forms.TickStyle.TopLeft
+        Me.Tb_MaxZ.Value = 6
+        '
+        'L_MinZ
+        '
+        Me.L_MinZ.AutoSize = True
+        Me.L_MinZ.Location = New System.Drawing.Point(203, 34)
+        Me.L_MinZ.Name = "L_MinZ"
+        Me.L_MinZ.Size = New System.Drawing.Size(13, 13)
+        Me.L_MinZ.TabIndex = 25
+        Me.L_MinZ.Text = "1"
+        '
+        'L_MaxZ
+        '
+        Me.L_MaxZ.AutoSize = True
+        Me.L_MaxZ.Location = New System.Drawing.Point(229, 34)
+        Me.L_MaxZ.Name = "L_MaxZ"
+        Me.L_MaxZ.Size = New System.Drawing.Size(13, 13)
+        Me.L_MaxZ.TabIndex = 26
+        Me.L_MaxZ.Text = "6"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(216, 34)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(10, 13)
+        Me.Label8.TabIndex = 27
+        Me.Label8.Text = "-"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(144, 117)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(48, 13)
+        Me.Label9.TabIndex = 28
+        Me.Label9.Text = "Intervalo"
+        '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.DecimalPlaces = 1
+        Me.NumericUpDown1.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.NumericUpDown1.Location = New System.Drawing.Point(206, 115)
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(42, 20)
+        Me.NumericUpDown1.TabIndex = 29
+        Me.NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 65536})
+        '
         'FormSimulation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1084, 681)
+        Me.Controls.Add(Me.NumericUpDown1)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.L_MaxZ)
+        Me.Controls.Add(Me.L_MinZ)
+        Me.Controls.Add(Me.Tb_MaxZ)
+        Me.Controls.Add(Me.Tb_MinZ)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Cb_simulationType)
-        Me.Controls.Add(Me.Tb_z)
         Me.Controls.Add(Me.Tb_l)
         Me.Controls.Add(Me.Tb_zl)
         Me.Controls.Add(Me.Tb_c)
@@ -362,6 +443,9 @@ Partial Class FormSimulation
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PB_Z, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PB_ZL, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Tb_MinZ, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Tb_MaxZ, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -388,8 +472,14 @@ Partial Class FormSimulation
     Friend WithEvents Tb_c As TextBox
     Friend WithEvents Tb_zl As TextBox
     Friend WithEvents Tb_l As TextBox
-    Friend WithEvents Tb_z As TextBox
     Friend WithEvents Cb_simulationType As ComboBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Tb_MinZ As TrackBar
+    Friend WithEvents Tb_MaxZ As TrackBar
+    Friend WithEvents L_MinZ As Label
+    Friend WithEvents L_MaxZ As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents NumericUpDown1 As NumericUpDown
 End Class
