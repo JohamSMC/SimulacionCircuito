@@ -10,6 +10,7 @@ Public Class FormSimulation
     Dim vectorI(10) As Double
     Dim vectorP(10) As Double
     Dim vectorT(10) As Double
+    Dim typeResponse As String
     Dim aux As Integer = 0
 
     Private Sub FormSimulation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -59,6 +60,8 @@ Public Class FormSimulation
         End Try
         System.Threading.Thread.Sleep(3000)
 
+        sendOctave("cd '" & Application.StartupPath & "'")
+
         aux = 0
         cleanCharts()
         vC = Tb_c.Text
@@ -85,50 +88,60 @@ Public Class FormSimulation
         cant_elementos = Tb_num.Text
         gan = Tb_g.Text
 
-        sendOctave("clc")
-        sendOctave("clear")
-        sendOctave("pkg load control")
-        sendOctave("s=tf{(}'s'{)};")
-        sendOctave("V=1;")  'Revisión porqué 1
-        sendOctave("C=" & vC & ";")
-        sendOctave("L=" & vL & ";")
-        sendOctave("Z=" & vZ & ";")
-        sendOctave("Zl=" & vZL & ";")
-
-        sendOctave("Z1=Zl/{(}C*s*Zl{+}1{)};")
-        sendOctave("Z2=Z{+}L*s{+}Z1;")
-        sendOctave("IZ2=V/Z2;")
-        sendOctave("VZ2=V;")
-        sendOctave("IZ1=IZ2;")
-        sendOctave("VZ1=IZ1*Z1;")
-        sendOctave("VZl=VZ1;")
-        sendOctave("IZl=VZl/Zl;")
-
-        sendOctave("GVZl=VZl/V;")
-        sendOctave("GIZl=IZl/IZ2;")
-        sendOctave("GPZl=GVZl*GIZl;")
-
-        Dim typeResponse = ""
+        '-----Definir si es respuesta al PASO o IMPULSO-----
+        typeResponse = ""
         If Cb_simulationType.SelectedItem = "PASO" Then
             typeResponse = "step"
         ElseIf Cb_simulationType.SelectedItem = "IMPULSO" Then
             typeResponse = "impulse"
         End If
 
-        '----------------------VOLTAJE----------------------
-        sendOctave("[v,t]=" & typeResponse & "{(}GVZl{)};")
-        sendOctave("c=length{(}t{)};")
-        sendOctave("tiempo=t{(}c{)}*1.1;")
-        sendOctave("[v,t]=" & typeResponse & "{(}GVZl,tiempo,tiempo/" & cant_elementos & "{)};")
-        sendOctave("dlmwrite{(}'" & Application.StartupPath & "\t.txt',t,'\n'{)};")
-        sendOctave("dlmwrite{(}'" & Application.StartupPath & "\v.txt',v,'\n'{)};")
-        '----------------------CORRIENTE--------------------
-        sendOctave("[i,t]=" & typeResponse & "{(}GIZl{)};")
-        sendOctave("c=length{(}t{)};")
-        sendOctave("tiempo=t{(}c{)}*1.1;")
-        sendOctave("[i,t]=" & typeResponse & "{(}GIZl,tiempo,tiempo/" & cant_elementos & "{)};")
-        sendOctave("dlmwrite{(}'" & Application.StartupPath & "\t.txt',t,'\n'{)};")
-        sendOctave("dlmwrite{(}'" & Application.StartupPath & "\i.txt',i,'\n'{)};")
+        createOctaveFile()
+        sendOctave("octaveFile")
+
+        While Not (File.Exists(Application.StartupPath & "\i.txt"))
+
+        End While
+
+        closeOctave()
+        loadData()
+
+        'sendOctave("clc")
+        'sendOctave("clear")
+        'sendOctave("pkg load control")
+        'sendOctave("s=tf{(}'s'{)};")
+        'sendOctave("V=1;")  'Revisión porqué 1
+        'sendOctave("C=" & vC & ";")
+        'sendOctave("L=" & vL & ";")
+        'sendOctave("Z=" & vZ & ";")
+        'sendOctave("Zl=" & vZL & ";")
+
+        'sendOctave("Z1=Zl/{(}C*s*Zl{+}1{)};")
+        'sendOctave("Z2=Z{+}L*s{+}Z1;")
+        'sendOctave("IZ2=V/Z2;")
+        'sendOctave("VZ2=V;")
+        'sendOctave("IZ1=IZ2;")
+        'sendOctave("VZ1=IZ1*Z1;")
+        'sendOctave("VZl=VZ1;")
+        'sendOctave("IZl=VZl/Zl;")
+
+        'sendOctave("GVZl=VZl/V;")
+        'sendOctave("GIZl=IZl/IZ2;")
+        'sendOctave("GPZl=GVZl*GIZl;")
+        ''----------------------VOLTAJE----------------------
+        'sendOctave("[v,t]=" & typeResponse & "{(}GVZl{)};")
+        'sendOctave("c=length{(}t{)};")
+        'sendOctave("tiempo=t{(}c{)}*1.1;")
+        'sendOctave("[v,t]=" & typeResponse & "{(}GVZl,tiempo,tiempo/" & cant_elementos & "{)};")
+        'sendOctave("dlmwrite{(}'" & Application.StartupPath & "\t.txt',t,'\n'{)};")
+        'sendOctave("dlmwrite{(}'" & Application.StartupPath & "\v.txt',v,'\n'{)};")
+        ''----------------------CORRIENTE--------------------
+        'sendOctave("[i,t]=" & typeResponse & "{(}GIZl{)};")
+        'sendOctave("c=length{(}t{)};")
+        'sendOctave("tiempo=t{(}c{)}*1.1;")
+        'sendOctave("[i,t]=" & typeResponse & "{(}GIZl,tiempo,tiempo/" & cant_elementos & "{)};")
+        'sendOctave("dlmwrite{(}'" & Application.StartupPath & "\t.txt',t,'\n'{)};")
+        'sendOctave("dlmwrite{(}'" & Application.StartupPath & "\i.txt',i,'\n'{)};")
         '----------------------POTENCIA---------------------
         'sendOctave("[p,t]=" & typeResponse & "{(}GPZl{)};")
         'sendOctave("c=length{(}t{)};")
@@ -136,9 +149,57 @@ Public Class FormSimulation
         'sendOctave("[p,t]=" & typeResponse & "{(}GPZl,tiempo,tiempo/" & cant_elementos & "{)};")
         'sendOctave("dlmwrite{(}'" & Application.StartupPath & "\t.txt',t,'\n'{)};")
         'sendOctave("dlmwrite{(}'" & Application.StartupPath & "\p.txt',p,'\n'{)};")
-        closeOctave()
-        loadData()
 
+
+    End Sub
+
+    Sub createOctaveFile()
+        Dim writerFile As StreamWriter
+        Try
+            My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\v.txt")
+            My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\i.txt")
+            My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\t.txt")
+            My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\octaveFile.m")
+        Catch ex As Exception
+
+        End Try
+
+        writerFile = File.AppendText(Application.StartupPath & "\octaveFile.m")
+        writerFile.Write("clc" & vbCrLf &
+        "clear" & vbCrLf &
+        "pkg load control" & vbCrLf &
+        "s=tf('s');" & vbCrLf &
+        "V=1;" & vbCrLf &
+        "C=" & vC & ";" & vbCrLf &
+        "L=" & vL & ";" & vbCrLf &
+        "Z=" & vZ & ";" & vbCrLf &
+        "Zl=" & vZL & ";" & vbCrLf &
+        "Z1=Zl/(C*s*Zl+1);" & vbCrLf &
+        "Z2=Z+L*s+Z1;" & vbCrLf &
+        "IZ2=V/Z2;" & vbCrLf &
+        "VZ2=V;" & vbCrLf &
+        "IZ1=IZ2;" & vbCrLf &
+        "VZ1=IZ1*Z1;" & vbCrLf &
+        "VZl=VZ1;" & vbCrLf &
+        "IZl=VZl/Zl;" & vbCrLf &
+        "GVZl=VZl/V;" & vbCrLf &
+        "GIZl=IZl/IZ2;" & vbCrLf &
+        "GPZl=GVZl*GIZl;" & vbCrLf &
+        "[v,t]=" & typeResponse & "(GVZl);" & vbCrLf &
+        "c=length(t);" & vbCrLf &
+        "tiempo=t(c)*1.1;" & vbCrLf &
+        "[v,t]=" & typeResponse & "(GVZl,tiempo,tiempo/" & cant_elementos & ");" & vbCrLf &
+        "dlmwrite('" & Application.StartupPath & "\t.txt',t,'\n');" & vbCrLf &
+        "dlmwrite('" & Application.StartupPath & "\v.txt',v,'\n');" & vbCrLf &
+        "[i,t]=" & typeResponse & "(GIZl);" & vbCrLf &
+        "c=length(t);" & vbCrLf &
+        "tiempo=t(c)*1.1;" & vbCrLf &
+        "[i,t]=" & typeResponse & "(GIZl,tiempo,tiempo/" & cant_elementos & ");" & vbCrLf &
+        "dlmwrite('" & Application.StartupPath & "\t.txt',t,'\n');" & vbCrLf &
+        "dlmwrite('" & Application.StartupPath & "\i.txt',i,'\n');")
+
+        writerFile.Flush()
+        writerFile.Close()
     End Sub
 
     Sub loadData()
