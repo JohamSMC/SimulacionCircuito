@@ -23,15 +23,15 @@ Partial Class FormSimulation
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea10 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title10 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea11 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title11 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea12 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title12 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormSimulation))
         Me.Chart_V = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart_P = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -62,8 +62,19 @@ Partial Class FormSimulation
         Me.L_MinZ = New System.Windows.Forms.Label()
         Me.L_MaxZ = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
+        Me.NUD_Z = New System.Windows.Forms.NumericUpDown()
+        Me.Tb_z = New System.Windows.Forms.TextBox()
+        Me.L_load = New System.Windows.Forms.Label()
+        Me.Tb_v = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Tb_MinZL = New System.Windows.Forms.TrackBar()
+        Me.Tb_MaxZL = New System.Windows.Forms.TrackBar()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.L_MaxZL = New System.Windows.Forms.Label()
+        Me.L_MinZL = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.NUD_ZL = New System.Windows.Forms.NumericUpDown()
         CType(Me.Chart_V, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart_P, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart_I, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,78 +83,87 @@ Partial Class FormSimulation
         CType(Me.PB_ZL, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tb_MinZ, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tb_MaxZ, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NUD_Z, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Tb_MinZL, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Tb_MaxZL, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NUD_ZL, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Chart_V
         '
         Me.Chart_V.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        ChartArea10.Name = "ChartArea1"
-        Me.Chart_V.ChartAreas.Add(ChartArea10)
+        ChartArea1.AxisX.Title = "Tiempo(t)"
+        ChartArea1.AxisY.Title = "Voltaje(V)"
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart_V.ChartAreas.Add(ChartArea1)
         Me.Chart_V.Location = New System.Drawing.Point(12, 399)
         Me.Chart_V.Name = "Chart_V"
-        Series10.BorderWidth = 3
-        Series10.ChartArea = "ChartArea1"
-        Series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series10.Color = System.Drawing.Color.ForestGreen
-        Series10.Name = "Series1"
-        Me.Chart_V.Series.Add(Series10)
+        Series1.BorderWidth = 3
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series1.Color = System.Drawing.Color.ForestGreen
+        Series1.Name = "Series1"
+        Me.Chart_V.Series.Add(Series1)
         Me.Chart_V.Size = New System.Drawing.Size(330, 250)
         Me.Chart_V.TabIndex = 0
-        Me.Chart_V.Text = "Chart1"
-        Title10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title10.Name = "Title1"
-        Title10.Text = "Voltaje"
-        Me.Chart_V.Titles.Add(Title10)
+        Me.Chart_V.Text = "Voltaje"
+        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title1.Name = "Title1"
+        Title1.Text = "Voltaje"
+        Me.Chart_V.Titles.Add(Title1)
         '
         'Chart_P
         '
         Me.Chart_P.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea11.Name = "ChartArea1"
-        Me.Chart_P.ChartAreas.Add(ChartArea11)
-        Me.Chart_P.Location = New System.Drawing.Point(742, 399)
+        ChartArea2.AxisX.Title = "Tiempo(t)"
+        ChartArea2.AxisY.Title = "Potencia(W)"
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart_P.ChartAreas.Add(ChartArea2)
+        Me.Chart_P.Location = New System.Drawing.Point(842, 399)
         Me.Chart_P.Name = "Chart_P"
-        Series11.BorderWidth = 3
-        Series11.ChartArea = "ChartArea1"
-        Series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series11.Color = System.Drawing.Color.Blue
-        Series11.Name = "Series1"
-        Me.Chart_P.Series.Add(Series11)
+        Series2.BorderWidth = 3
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series2.Color = System.Drawing.Color.Blue
+        Series2.Name = "Series1"
+        Me.Chart_P.Series.Add(Series2)
         Me.Chart_P.Size = New System.Drawing.Size(330, 250)
         Me.Chart_P.TabIndex = 1
-        Me.Chart_P.Text = "Chart2"
-        Title11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title11.Name = "Title1"
-        Title11.Text = "Potencia"
-        Me.Chart_P.Titles.Add(Title11)
+        Me.Chart_P.Text = "Potencia"
+        Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title2.Name = "Title1"
+        Title2.Text = "Potencia"
+        Me.Chart_P.Titles.Add(Title2)
         '
         'Chart_I
         '
         Me.Chart_I.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        ChartArea12.Name = "ChartArea1"
-        Me.Chart_I.ChartAreas.Add(ChartArea12)
-        Me.Chart_I.Location = New System.Drawing.Point(376, 399)
+        ChartArea3.AxisX.Title = "Tiempo(t)"
+        ChartArea3.AxisY.Title = "Corriente(A)"
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart_I.ChartAreas.Add(ChartArea3)
+        Me.Chart_I.Location = New System.Drawing.Point(426, 399)
         Me.Chart_I.Name = "Chart_I"
-        Series12.BorderWidth = 3
-        Series12.ChartArea = "ChartArea1"
-        Series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series12.Color = System.Drawing.Color.Red
-        Series12.Name = "Series1"
-        Me.Chart_I.Series.Add(Series12)
+        Series3.BorderWidth = 3
+        Series3.ChartArea = "ChartArea1"
+        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series3.Color = System.Drawing.Color.Red
+        Series3.Name = "Series1"
+        Me.Chart_I.Series.Add(Series3)
         Me.Chart_I.Size = New System.Drawing.Size(330, 250)
         Me.Chart_I.TabIndex = 2
-        Me.Chart_I.Text = "Chart3"
-        Title12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title12.Name = "Title1"
-        Title12.Text = "Corriente"
-        Me.Chart_I.Titles.Add(Title12)
+        Me.Chart_I.Text = "Corriente"
+        Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title3.Name = "Title1"
+        Title3.Text = "Corriente"
+        Me.Chart_I.Titles.Add(Title3)
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(800, 370)
+        Me.PictureBox1.Size = New System.Drawing.Size(816, 370)
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         '
@@ -170,9 +190,9 @@ Partial Class FormSimulation
         Me.CB_Z.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_Z.FormattingEnabled = True
         Me.CB_Z.Items.AddRange(New Object() {"Resistencia", "Condensador", "Bobina"})
-        Me.CB_Z.Location = New System.Drawing.Point(268, 114)
+        Me.CB_Z.Location = New System.Drawing.Point(186, 114)
         Me.CB_Z.Name = "CB_Z"
-        Me.CB_Z.Size = New System.Drawing.Size(85, 21)
+        Me.CB_Z.Size = New System.Drawing.Size(100, 21)
         Me.CB_Z.TabIndex = 6
         '
         'CB_ZL
@@ -180,16 +200,16 @@ Partial Class FormSimulation
         Me.CB_ZL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_ZL.FormattingEnabled = True
         Me.CB_ZL.Items.AddRange(New Object() {"Resistencia", "Condensador", "Bobina"})
-        Me.CB_ZL.Location = New System.Drawing.Point(701, 241)
+        Me.CB_ZL.Location = New System.Drawing.Point(698, 215)
         Me.CB_ZL.Name = "CB_ZL"
-        Me.CB_ZL.Size = New System.Drawing.Size(85, 21)
+        Me.CB_ZL.Size = New System.Drawing.Size(100, 21)
         Me.CB_ZL.TabIndex = 7
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(106, 100)
+        Me.Label1.Location = New System.Drawing.Point(154, 110)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(26, 25)
         Me.Label1.TabIndex = 8
@@ -228,9 +248,9 @@ Partial Class FormSimulation
         'Bt_start
         '
         Me.Bt_start.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Bt_start.Location = New System.Drawing.Point(843, 21)
+        Me.Bt_start.Location = New System.Drawing.Point(839, 21)
         Me.Bt_start.Name = "Bt_start"
-        Me.Bt_start.Size = New System.Drawing.Size(172, 50)
+        Me.Bt_start.Size = New System.Drawing.Size(241, 50)
         Me.Bt_start.TabIndex = 12
         Me.Bt_start.Text = "SIMULAR"
         Me.Bt_start.UseVisualStyleBackColor = True
@@ -239,7 +259,7 @@ Partial Class FormSimulation
         '
         Me.Cb_animation.AutoSize = True
         Me.Cb_animation.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Cb_animation.Location = New System.Drawing.Point(843, 86)
+        Me.Cb_animation.Location = New System.Drawing.Point(914, 73)
         Me.Cb_animation.Name = "Cb_animation"
         Me.Cb_animation.Size = New System.Drawing.Size(111, 24)
         Me.Cb_animation.TabIndex = 13
@@ -250,7 +270,7 @@ Partial Class FormSimulation
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(841, 191)
+        Me.Label5.Location = New System.Drawing.Point(838, 240)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(25, 25)
         Me.Label5.TabIndex = 14
@@ -260,7 +280,7 @@ Partial Class FormSimulation
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(837, 229)
+        Me.Label6.Location = New System.Drawing.Point(834, 278)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(29, 25)
         Me.Label6.TabIndex = 15
@@ -268,14 +288,14 @@ Partial Class FormSimulation
         '
         'Tb_num
         '
-        Me.Tb_num.Location = New System.Drawing.Point(886, 192)
+        Me.Tb_num.Location = New System.Drawing.Point(883, 241)
         Me.Tb_num.Name = "Tb_num"
         Me.Tb_num.Size = New System.Drawing.Size(100, 20)
         Me.Tb_num.TabIndex = 16
         '
         'Tb_g
         '
-        Me.Tb_g.Location = New System.Drawing.Point(886, 234)
+        Me.Tb_g.Location = New System.Drawing.Point(883, 283)
         Me.Tb_g.Name = "Tb_g"
         Me.Tb_g.Size = New System.Drawing.Size(100, 20)
         Me.Tb_g.TabIndex = 17
@@ -289,7 +309,7 @@ Partial Class FormSimulation
         '
         'Tb_zl
         '
-        Me.Tb_zl.Location = New System.Drawing.Point(701, 215)
+        Me.Tb_zl.Location = New System.Drawing.Point(742, 271)
         Me.Tb_zl.Name = "Tb_zl"
         Me.Tb_zl.Size = New System.Drawing.Size(36, 20)
         Me.Tb_zl.TabIndex = 19
@@ -307,7 +327,7 @@ Partial Class FormSimulation
         Me.Cb_simulationType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cb_simulationType.FormattingEnabled = True
         Me.Cb_simulationType.Items.AddRange(New Object() {"PASO", "IMPULSO"})
-        Me.Cb_simulationType.Location = New System.Drawing.Point(843, 149)
+        Me.Cb_simulationType.Location = New System.Drawing.Point(840, 200)
         Me.Cb_simulationType.Name = "Cb_simulationType"
         Me.Cb_simulationType.Size = New System.Drawing.Size(185, 24)
         Me.Cb_simulationType.TabIndex = 22
@@ -316,7 +336,7 @@ Partial Class FormSimulation
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(842, 113)
+        Me.Label7.Location = New System.Drawing.Point(839, 169)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(186, 24)
         Me.Label7.TabIndex = 23
@@ -324,7 +344,7 @@ Partial Class FormSimulation
         '
         'Timer1
         '
-        Me.Timer1.Interval = 1
+        Me.Timer1.Interval = 10
         '
         'Tb_MinZ
         '
@@ -354,58 +374,183 @@ Partial Class FormSimulation
         'L_MinZ
         '
         Me.L_MinZ.AutoSize = True
-        Me.L_MinZ.Location = New System.Drawing.Point(203, 34)
+        Me.L_MinZ.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.L_MinZ.Location = New System.Drawing.Point(203, 21)
         Me.L_MinZ.Name = "L_MinZ"
-        Me.L_MinZ.Size = New System.Drawing.Size(13, 13)
+        Me.L_MinZ.Size = New System.Drawing.Size(16, 16)
         Me.L_MinZ.TabIndex = 25
         Me.L_MinZ.Text = "1"
         '
         'L_MaxZ
         '
         Me.L_MaxZ.AutoSize = True
-        Me.L_MaxZ.Location = New System.Drawing.Point(229, 34)
+        Me.L_MaxZ.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.L_MaxZ.Location = New System.Drawing.Point(229, 21)
         Me.L_MaxZ.Name = "L_MaxZ"
-        Me.L_MaxZ.Size = New System.Drawing.Size(13, 13)
+        Me.L_MaxZ.Size = New System.Drawing.Size(16, 16)
         Me.L_MaxZ.TabIndex = 26
         Me.L_MaxZ.Text = "6"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(216, 34)
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(216, 21)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(10, 13)
+        Me.Label8.Size = New System.Drawing.Size(13, 16)
         Me.Label8.TabIndex = 27
         Me.Label8.Text = "-"
         '
-        'Label9
+        'NUD_Z
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(144, 117)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(48, 13)
-        Me.Label9.TabIndex = 28
-        Me.Label9.Text = "Intervalo"
+        Me.NUD_Z.DecimalPlaces = 1
+        Me.NUD_Z.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.NUD_Z.Location = New System.Drawing.Point(230, 143)
+        Me.NUD_Z.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.NUD_Z.Minimum = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.NUD_Z.Name = "NUD_Z"
+        Me.NUD_Z.Size = New System.Drawing.Size(42, 20)
+        Me.NUD_Z.TabIndex = 29
+        Me.NUD_Z.Value = New Decimal(New Integer() {1, 0, 0, 65536})
         '
-        'NumericUpDown1
+        'Tb_z
         '
-        Me.NumericUpDown1.DecimalPlaces = 1
-        Me.NumericUpDown1.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown1.Location = New System.Drawing.Point(206, 115)
-        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(42, 20)
-        Me.NumericUpDown1.TabIndex = 29
-        Me.NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.Tb_z.Location = New System.Drawing.Point(206, 169)
+        Me.Tb_z.Name = "Tb_z"
+        Me.Tb_z.Size = New System.Drawing.Size(42, 20)
+        Me.Tb_z.TabIndex = 30
+        '
+        'L_load
+        '
+        Me.L_load.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.L_load.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.L_load.ForeColor = System.Drawing.SystemColors.Control
+        Me.L_load.Location = New System.Drawing.Point(840, 100)
+        Me.L_load.Name = "L_load"
+        Me.L_load.Size = New System.Drawing.Size(240, 54)
+        Me.L_load.TabIndex = 31
+        Me.L_load.Text = "C:> Esperando por Simulación"
+        '
+        'Tb_v
+        '
+        Me.Tb_v.Location = New System.Drawing.Point(111, 224)
+        Me.Tb_v.Name = "Tb_v"
+        Me.Tb_v.Size = New System.Drawing.Size(36, 20)
+        Me.Tb_v.TabIndex = 32
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(106, 196)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(27, 25)
+        Me.Label13.TabIndex = 36
+        Me.Label13.Text = "V"
+        '
+        'Tb_MinZL
+        '
+        Me.Tb_MinZL.LargeChange = 1
+        Me.Tb_MinZL.Location = New System.Drawing.Point(574, 142)
+        Me.Tb_MinZL.Maximum = 3
+        Me.Tb_MinZL.Minimum = 1
+        Me.Tb_MinZL.Name = "Tb_MinZL"
+        Me.Tb_MinZL.Size = New System.Drawing.Size(57, 45)
+        Me.Tb_MinZL.TabIndex = 37
+        Me.Tb_MinZL.Value = 1
+        '
+        'Tb_MaxZL
+        '
+        Me.Tb_MaxZL.LargeChange = 1
+        Me.Tb_MaxZL.Location = New System.Drawing.Point(574, 240)
+        Me.Tb_MaxZL.Maximum = 6
+        Me.Tb_MaxZL.Minimum = 3
+        Me.Tb_MaxZL.Name = "Tb_MaxZL"
+        Me.Tb_MaxZL.Size = New System.Drawing.Size(57, 45)
+        Me.Tb_MaxZL.TabIndex = 38
+        Me.Tb_MaxZL.TickStyle = System.Windows.Forms.TickStyle.TopLeft
+        Me.Tb_MaxZL.Value = 6
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(587, 200)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(13, 16)
+        Me.Label10.TabIndex = 41
+        Me.Label10.Text = "-"
+        '
+        'L_MaxZL
+        '
+        Me.L_MaxZL.AutoSize = True
+        Me.L_MaxZL.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.L_MaxZL.Location = New System.Drawing.Point(600, 200)
+        Me.L_MaxZL.Name = "L_MaxZL"
+        Me.L_MaxZL.Size = New System.Drawing.Size(16, 16)
+        Me.L_MaxZL.TabIndex = 40
+        Me.L_MaxZL.Text = "6"
+        '
+        'L_MinZL
+        '
+        Me.L_MinZL.AutoSize = True
+        Me.L_MinZL.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.L_MinZL.Location = New System.Drawing.Point(574, 200)
+        Me.L_MinZL.Name = "L_MinZL"
+        Me.L_MinZL.Size = New System.Drawing.Size(16, 16)
+        Me.L_MinZL.TabIndex = 39
+        Me.L_MinZL.Text = "1"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(698, 249)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(68, 16)
+        Me.Label14.TabIndex = 42
+        Me.Label14.Text = "Intervalo"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(156, 146)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(68, 16)
+        Me.Label15.TabIndex = 43
+        Me.Label15.Text = "Intervalo"
+        '
+        'NUD_ZL
+        '
+        Me.NUD_ZL.DecimalPlaces = 1
+        Me.NUD_ZL.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.NUD_ZL.Location = New System.Drawing.Point(772, 247)
+        Me.NUD_ZL.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.NUD_ZL.Minimum = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.NUD_ZL.Name = "NUD_ZL"
+        Me.NUD_ZL.Size = New System.Drawing.Size(42, 20)
+        Me.NUD_ZL.TabIndex = 44
+        Me.NUD_ZL.Value = New Decimal(New Integer() {1, 0, 0, 65536})
         '
         'FormSimulation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1084, 681)
-        Me.Controls.Add(Me.NumericUpDown1)
-        Me.Controls.Add(Me.Label9)
+        Me.ClientSize = New System.Drawing.Size(1184, 681)
+        Me.Controls.Add(Me.NUD_ZL)
+        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.L_MaxZL)
+        Me.Controls.Add(Me.L_MinZL)
+        Me.Controls.Add(Me.Tb_MaxZL)
+        Me.Controls.Add(Me.Tb_MinZL)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.Tb_v)
+        Me.Controls.Add(Me.L_load)
+        Me.Controls.Add(Me.Tb_z)
+        Me.Controls.Add(Me.NUD_Z)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.L_MaxZ)
         Me.Controls.Add(Me.L_MinZ)
@@ -445,7 +590,10 @@ Partial Class FormSimulation
         CType(Me.PB_ZL, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tb_MinZ, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tb_MaxZ, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NUD_Z, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Tb_MinZL, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Tb_MaxZL, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NUD_ZL, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -480,6 +628,17 @@ Partial Class FormSimulation
     Friend WithEvents L_MinZ As Label
     Friend WithEvents L_MaxZ As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents NumericUpDown1 As NumericUpDown
+    Friend WithEvents NUD_Z As NumericUpDown
+    Friend WithEvents Tb_z As TextBox
+    Friend WithEvents L_load As Label
+    Friend WithEvents Tb_v As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Tb_MinZL As TrackBar
+    Friend WithEvents Tb_MaxZL As TrackBar
+    Friend WithEvents Label10 As Label
+    Friend WithEvents L_MaxZL As Label
+    Friend WithEvents L_MinZL As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents NUD_ZL As NumericUpDown
 End Class

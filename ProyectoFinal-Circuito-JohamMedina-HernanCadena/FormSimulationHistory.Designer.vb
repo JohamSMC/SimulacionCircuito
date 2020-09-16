@@ -26,6 +26,7 @@ Partial Class FormSimulationHistory
         Me.NumeroElementos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Ganancia = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipoRespuesta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValorVoltaje = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ElementoZ = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ValorZ = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ValorL = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -47,7 +48,7 @@ Partial Class FormSimulationHistory
         Me.DGV_SimulationHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DGV_SimulationHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DGV_SimulationHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV_SimulationHistory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumeroElementos, Me.Ganancia, Me.TipoRespuesta, Me.ElementoZ, Me.ValorZ, Me.ValorL, Me.ValorC, Me.ElementoZL, Me.ValorZL, Me.GraficaVoltaje, Me.GraficaCorriente, Me.GraficaPotencia})
+        Me.DGV_SimulationHistory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumeroElementos, Me.Ganancia, Me.TipoRespuesta, Me.ValorVoltaje, Me.ElementoZ, Me.ValorZ, Me.ValorL, Me.ValorC, Me.ElementoZL, Me.ValorZL, Me.GraficaVoltaje, Me.GraficaCorriente, Me.GraficaPotencia})
         Me.DGV_SimulationHistory.Location = New System.Drawing.Point(12, 12)
         Me.DGV_SimulationHistory.Name = "DGV_SimulationHistory"
         Me.DGV_SimulationHistory.ReadOnly = True
@@ -74,6 +75,13 @@ Partial Class FormSimulationHistory
         Me.TipoRespuesta.Name = "TipoRespuesta"
         Me.TipoRespuesta.ReadOnly = True
         Me.TipoRespuesta.Width = 112
+        '
+        'ValorVoltaje
+        '
+        Me.ValorVoltaje.HeaderText = "Valor del Voltaje"
+        Me.ValorVoltaje.Name = "ValorVoltaje"
+        Me.ValorVoltaje.ReadOnly = True
+        Me.ValorVoltaje.Width = 99
         '
         'ElementoZ
         '
@@ -155,6 +163,7 @@ Partial Class FormSimulationHistory
     Friend WithEvents NumeroElementos As DataGridViewTextBoxColumn
     Friend WithEvents Ganancia As DataGridViewTextBoxColumn
     Friend WithEvents TipoRespuesta As DataGridViewTextBoxColumn
+    Friend WithEvents ValorVoltaje As DataGridViewTextBoxColumn
     Friend WithEvents ElementoZ As DataGridViewTextBoxColumn
     Friend WithEvents ValorZ As DataGridViewTextBoxColumn
     Friend WithEvents ValorL As DataGridViewTextBoxColumn

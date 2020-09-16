@@ -3,7 +3,7 @@
 Public Class FormSimulation
     Dim pInfo As New ProcessStartInfo
     Dim p As Process
-    Dim vL, vC As Double
+    Dim vL, vC, vV As Double
     Dim vZ, vZL As String
     Dim cant_elementos, gan As Integer
     Dim vectorV(10) As Double
@@ -49,6 +49,9 @@ Public Class FormSimulation
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Bt_start.Click
+        'Desactivar los botones para la simulación
+        disableSimulationButtons()
+
         Try
             pInfo.FileName = path_Octave
             pInfo.WindowStyle = ProcessWindowStyle.Minimized
@@ -58,6 +61,9 @@ Public Class FormSimulation
             MsgBox("No se encuentra el archivo Octave-CLI")
             Bt_start.Enabled = False
         End Try
+
+        L_load.Text = "C:> Simulación Iniciada"
+
         System.Threading.Thread.Sleep(3000)
 
         sendOctave("cd '" & Application.StartupPath & "'")
@@ -66,27 +72,27 @@ Public Class FormSimulation
         cleanCharts()
         vC = Tb_c.Text
         vL = Tb_l.Text
+        vV = Tb_v.Text
+        cant_elementos = Tb_num.Text
+        gan = Tb_g.Text
 
         Select Case CB_ZL.SelectedIndex
             Case 0
                 vZL = Tb_zl.Text
             Case 1
-                vZL = "1/{(}" & Tb_zl.Text & "*s{)}"
+                vZL = "1/(" & Tb_zl.Text & "*s)"
             Case 2
                 vZL = Tb_zl.Text & "*s"
         End Select
 
         Select Case CB_Z.SelectedIndex
             Case 0
-                'vZ = Tb_z.Text
+                vZ = Tb_z.Text
             Case 1
-                'vZ = "1/{(}" & Tb_z.Text & "*s{)}"
+                vZ = "1/(" & Tb_z.Text & "*s)"
             Case 2
-                'vZ = Tb_z.Text & "*s"
+                vZ = Tb_z.Text & "*s"
         End Select
-
-        cant_elementos = Tb_num.Text
-        gan = Tb_g.Text
 
         '-----Definir si es respuesta al PASO o IMPULSO-----
         typeResponse = ""
@@ -96,8 +102,15 @@ Public Class FormSimulation
             typeResponse = "impulse"
         End If
 
+        L_load.Text += vbCrLf + "C:> Simulación 10%..."
+
         createOctaveFile()
+
+        L_load.Text += vbCrLf + "C:> Simulación 40%..."
+
         sendOctave("octaveFile")
+
+        L_load.Text = "C:> Simulación 60%..."
 
         While Not (File.Exists(Application.StartupPath & "\i.txt"))
 
@@ -105,12 +118,15 @@ Public Class FormSimulation
 
         closeOctave()
         loadData()
+        L_load.Text += vbCrLf + "C:> Simulación 100%"
+        L_load.Text = "C:> Simulación Terminada"
+        L_load.Text += vbCrLf + "C:> Esperando por Nueva Simulación"
 
         'sendOctave("clc")
         'sendOctave("clear")
         'sendOctave("pkg load control")
         'sendOctave("s=tf{(}'s'{)};")
-        'sendOctave("V=1;")  'Revisión porqué 1
+        'sendOctave("V=" & vC & ";")
         'sendOctave("C=" & vC & ";")
         'sendOctave("L=" & vL & ";")
         'sendOctave("Z=" & vZ & ";")
@@ -169,7 +185,7 @@ Public Class FormSimulation
         "clear" & vbCrLf &
         "pkg load control" & vbCrLf &
         "s=tf('s');" & vbCrLf &
-        "V=1;" & vbCrLf &
+        "V=" & vV & vbCrLf &
         "C=" & vC & ";" & vbCrLf &
         "L=" & vL & ";" & vbCrLf &
         "Z=" & vZ & ";" & vbCrLf &
@@ -232,6 +248,7 @@ Public Class FormSimulation
         Next
         datosT.Close()
 
+        L_load.Text += vbCrLf + "C:> Simulación 70%..."
         If Cb_animation.Checked Then
             Timer1.Enabled = True
         Else
@@ -242,6 +259,9 @@ Public Class FormSimulation
             Chart_I.Series(0).ToolTip = "#VAL{N2}"
             Chart_P.Series(0).ToolTip = "#VAL{N2}"
             saveSimulationData()
+            L_load.Text = "C:> Simulación 90%..."
+            ' Activar Botones para Nueva Simulacion
+            activateSimulationButtons()
         End If
 
 
@@ -255,6 +275,8 @@ Public Class FormSimulation
             Chart_I.Series(0).ToolTip = "#VAL{N2}"
             Chart_P.Series(0).ToolTip = "#VAL{N2}"
             saveSimulationData()
+            'Activar Botones para Nueva Simulacion
+            activateSimulationButtons()
         End If
     End Sub
 
@@ -286,25 +308,68 @@ Public Class FormSimulation
         FormSimulationHistory.DGV_SimulationHistory.Item(1, numberRows).Value = Tb_g.Text
         FormSimulationHistory.DGV_SimulationHistory.Item(2, numberRows).Value = Cb_simulationType.Text
 
-        FormSimulationHistory.DGV_SimulationHistory.Item(3, numberRows).Value = CB_Z.Text
-        'FormSimulationHistory.DGV_SimulationHistory.Item(4, numberRows).Value = Tb_z.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(5, numberRows).Value = Tb_l.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(6, numberRows).Value = Tb_c.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(7, numberRows).Value = CB_ZL.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(8, numberRows).Value = Tb_zl.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(3, numberRows).Value = Tb_v.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(4, numberRows).Value = CB_Z.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(5, numberRows).Value = Tb_z.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(6, numberRows).Value = Tb_l.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(7, numberRows).Value = Tb_c.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(8, numberRows).Value = CB_ZL.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(9, numberRows).Value = Tb_zl.Text
 
         Dim bmpV As New Bitmap(Chart_V.Width, Chart_V.Height)
         Chart_V.DrawToBitmap(bmpV, Chart_V.DisplayRectangle)
-        FormSimulationHistory.DGV_SimulationHistory.Item(9, numberRows).Value = bmpV
+        FormSimulationHistory.DGV_SimulationHistory.Item(10, numberRows).Value = bmpV
 
         Dim bmpI As New Bitmap(Chart_I.Width, Chart_I.Height)
         Chart_I.DrawToBitmap(bmpI, Chart_I.DisplayRectangle)
-        FormSimulationHistory.DGV_SimulationHistory.Item(10, numberRows).Value = bmpI
+        FormSimulationHistory.DGV_SimulationHistory.Item(11, numberRows).Value = bmpI
 
         Dim bmpP As New Bitmap(Chart_P.Width, Chart_P.Height)
         Chart_P.DrawToBitmap(bmpP, Chart_P.DisplayRectangle)
-        FormSimulationHistory.DGV_SimulationHistory.Item(11, numberRows).Value = bmpP
+        FormSimulationHistory.DGV_SimulationHistory.Item(12, numberRows).Value = bmpP
 
+    End Sub
+
+    Sub disableSimulationButtons()
+        Bt_start.Enabled = False
+        Tb_v.Enabled = False
+        Tb_l.Enabled = False
+        Tb_c.Enabled = False
+        Cb_simulationType.Enabled = False
+        Tb_num.Enabled = False
+        Tb_g.Enabled = False
+
+        Tb_MinZ.Enabled = False
+        Tb_MaxZ.Enabled = False
+        CB_Z.Enabled = False
+        NUD_Z.Enabled = False
+
+
+        Tb_MinZL.Enabled = False
+        Tb_MaxZL.Enabled = False
+        CB_ZL.Enabled = False
+        NUD_ZL.Enabled = False
+    End Sub
+
+    Sub activateSimulationButtons()
+        Bt_start.Enabled = True
+        Tb_v.Enabled = True
+        Tb_l.Enabled = True
+        Tb_c.Enabled = True
+        Cb_simulationType.Enabled = True
+        Tb_num.Enabled = True
+        Tb_g.Enabled = True
+
+        Tb_MinZ.Enabled = True
+        Tb_MaxZ.Enabled = True
+        CB_Z.Enabled = True
+        NUD_Z.Enabled = True
+
+
+        Tb_MinZL.Enabled = True
+        Tb_MaxZL.Enabled = True
+        CB_ZL.Enabled = True
+        NUD_ZL.Enabled = True
     End Sub
 
 End Class
