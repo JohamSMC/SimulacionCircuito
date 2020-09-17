@@ -7,7 +7,9 @@ Public Class FormMain
     End Sub
 
     Private Sub Bt_pathOctave_Click(sender As Object, e As EventArgs) Handles Bt_pathOctave.Click
-        MsgBox("Seleccione ruta de instalación de Octave", MsgBoxStyle.OkOnly)
+        MsgBox("Seleccione ruta de instalación de Octave" & vbCrLf & vbCrLf &
+               "Seleccione hasta la carpeta de la version de Octave" & vbCrLf & vbCrLf &
+               "Ejemplo: C:\Octave\Octave-X.X.X", MsgBoxStyle.OkOnly)
         Dim folder As New FolderBrowserDialog
         Dim path As String = ""
         If folder.ShowDialog() = DialogResult.OK Then

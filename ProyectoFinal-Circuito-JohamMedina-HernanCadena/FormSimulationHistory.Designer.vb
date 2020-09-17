@@ -23,6 +23,7 @@ Partial Class FormSimulationHistory
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DGV_SimulationHistory = New System.Windows.Forms.DataGridView()
+        Me.NumeroSimulacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NumeroElementos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Ganancia = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipoRespuesta = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -48,12 +49,19 @@ Partial Class FormSimulationHistory
         Me.DGV_SimulationHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DGV_SimulationHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DGV_SimulationHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV_SimulationHistory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumeroElementos, Me.Ganancia, Me.TipoRespuesta, Me.ValorVoltaje, Me.ElementoZ, Me.ValorZ, Me.ValorL, Me.ValorC, Me.ElementoZL, Me.ValorZL, Me.GraficaVoltaje, Me.GraficaCorriente, Me.GraficaPotencia})
+        Me.DGV_SimulationHistory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumeroSimulacion, Me.NumeroElementos, Me.Ganancia, Me.TipoRespuesta, Me.ValorVoltaje, Me.ElementoZ, Me.ValorZ, Me.ValorL, Me.ValorC, Me.ElementoZL, Me.ValorZL, Me.GraficaVoltaje, Me.GraficaCorriente, Me.GraficaPotencia})
         Me.DGV_SimulationHistory.Location = New System.Drawing.Point(12, 12)
         Me.DGV_SimulationHistory.Name = "DGV_SimulationHistory"
         Me.DGV_SimulationHistory.ReadOnly = True
         Me.DGV_SimulationHistory.Size = New System.Drawing.Size(1160, 657)
         Me.DGV_SimulationHistory.TabIndex = 0
+        '
+        'NumeroSimulacion
+        '
+        Me.NumeroSimulacion.HeaderText = "#"
+        Me.NumeroSimulacion.Name = "NumeroSimulacion"
+        Me.NumeroSimulacion.ReadOnly = True
+        Me.NumeroSimulacion.Width = 39
         '
         'NumeroElementos
         '
@@ -160,6 +168,7 @@ Partial Class FormSimulationHistory
     End Sub
 
     Friend WithEvents DGV_SimulationHistory As DataGridView
+    Friend WithEvents NumeroSimulacion As DataGridViewTextBoxColumn
     Friend WithEvents NumeroElementos As DataGridViewTextBoxColumn
     Friend WithEvents Ganancia As DataGridViewTextBoxColumn
     Friend WithEvents TipoRespuesta As DataGridViewTextBoxColumn

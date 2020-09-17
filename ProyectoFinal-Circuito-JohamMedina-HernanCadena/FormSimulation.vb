@@ -17,6 +17,10 @@ Public Class FormSimulation
         Cb_simulationType.SelectedItem = "PASO"
         CB_Z.SelectedItem = "Resistencia"
         CB_ZL.SelectedItem = "Resistencia"
+        Tb_z.Text = 1
+        Tb_zl.Text = 1
+        Tb_z.Enabled = False
+        Tb_zl.Enabled = False
 
     End Sub
 
@@ -48,10 +52,118 @@ Public Class FormSimulation
         End Select
     End Sub
 
+    Dim minZ, maxZ, minZL, maxZL As Integer
+    Dim itervalZ, itervalZL As Double
+    Dim ciclosZ, ciclosZL As Integer
+
+    Function validateCircut() As Boolean
+        minZ = Tb_MinZ.Value
+        maxZ = Tb_MaxZ.Value
+        minZL = Tb_MinZL.Value
+        maxZL = Tb_MaxZL.Value
+        Dim auxZ As Double = (maxZ - minZ) Mod NUD_Z.Value
+        Dim auxZL As Double = (maxZL - minZL) Mod NUD_ZL.Value
+
+        If CB_Z.Text = "Resistencia" And CB_ZL.Text = "Condensador" Then
+            MsgBox("La combinación de Z = Resistencia y ZL = Condensador NO ES VALIDA!!!")
+            Return False
+        ElseIf CB_Z.Text = "Condensador" And CB_ZL.Text = "Condensador" Then
+            MsgBox("La combinación de Z = Condensador y ZL = Condensador NO ES VALIDA!!!")
+            Return False
+        ElseIf CB_Z.Text = "Bobina" And CB_ZL.Text = "Condensador" Then
+            MsgBox("La combinación de Z = Bobina y ZL = Condensador NO ES VALIDA!!!")
+            Return False
+        ElseIf CB_Z.Text = "Bobina" And CB_ZL.Text = "Bobina" Then
+            MsgBox("La combinación de Z = Bobina y ZL = Bobina NO ES VALIDA!!!")
+            Return False
+        ElseIf Tb_MinZ.Value > Tb_MaxZ.Value Then
+            MsgBox("El valor minimo de Z debe ser menor que el valor maximo Z")
+            Return False
+        ElseIf Tb_MinZL.Value > Tb_MaxZL.Value Then
+            MsgBox("El valor minimo de ZL debe ser menor que el valor maximo ZL")
+            Return False
+        ElseIf Not (auxZ = 0) Then
+            MsgBox("Intervalo de Elemento Z no apropiado")
+            Return False
+        ElseIf Not (auxZL = 0) Then
+            MsgBox("Intervalo de Elemento ZL no apropiado")
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Bt_start.Click
         'Desactivar los botones para la simulación
         disableSimulationButtons()
+        If validateCircut() Then
+            Dim iteracionesTotales As Integer
+            Dim iteracionActual As Integer
+            Dim iteracionZ As Double
+            Dim iteracionZL As Double
 
+            'Console.WriteLine("------------------> MAX Z " & Str(maxZ))
+            'Console.WriteLine("------------------> MIN Z " & Str(minZ))
+            'Console.WriteLine("------------------> MAX ZL " & Str(maxZL))
+            'Console.WriteLine("------------------> MIN ZL " & Str(minZL))
+
+            If maxZ = minZ And maxZL = minZL Then
+                L_load.Text = "C:> Simulación Iniciada"
+                startSimulation()
+                L_load.Text = "C:> Simulación 100%"
+            ElseIf maxZ = minZ And Not (maxZL = minZL) Then
+                ciclosZL = (Tb_MaxZL.Value - Tb_MinZL.Value) / NUD_ZL.Value
+                iteracionZL = 0
+                iteracionesTotales = ciclosZL + 1
+                iteracionActual = 1
+                For j = 0 To ciclosZL
+                    Tb_zl.Text = minZL + iteracionZL
+                    startSimulation()
+                    iteracionZL += NUD_ZL.Value
+                    iteracionActual += 1
+                    L_load.Text = "C:> Simulación " & iteracionActual & " de " & iteracionesTotales
+                Next
+            ElseIf Not (maxZ = minZ) And maxZL = minZL Then
+                ciclosZ = (Tb_MaxZ.Value - Tb_MinZ.Value) / NUD_Z.Value
+                iteracionZ = 0
+                iteracionesTotales = ciclosZ + 1
+                iteracionActual = 1
+                For j = 0 To ciclosZ
+                    Tb_z.Text = minZ + iteracionZ
+                    startSimulation()
+                    iteracionZ += NUD_Z.Value
+                    iteracionActual += 1
+                    L_load.Text = "C:> Simulación " & iteracionActual & " de " & iteracionesTotales
+                Next
+            ElseIf Not (maxZ = minZ) And Not (maxZL = minZL) Then
+                ciclosZ = (Tb_MaxZ.Value - Tb_MinZ.Value) / NUD_Z.Value
+                ciclosZL = (Tb_MaxZL.Value - Tb_MinZL.Value) / NUD_ZL.Value
+                iteracionZ = 0
+                iteracionesTotales = (ciclosZ + 1) * (ciclosZL + 1)
+                iteracionActual = 1
+                For i = 0 To ciclosZ
+                    Tb_z.Text = minZ + iteracionZ
+                    iteracionZL = 0
+                    For j = 0 To ciclosZL
+                        Tb_zl.Text = minZL + iteracionZL
+                        startSimulation()
+                        iteracionZL += NUD_ZL.Value
+                        iteracionActual += 1
+                        L_load.Text = "C:> Simulación " & iteracionActual & " de " & iteracionesTotales
+                    Next
+                    iteracionZ += NUD_Z.Value
+                Next
+
+            End If
+            L_load.Text = "C:> Simulación Terminada"
+            L_load.Text += vbCrLf & "C:> Esperando por Nueva Simulación"
+
+            'Activar Botones para Nueva Simulacion
+            activateSimulationButtons()
+        End If
+    End Sub
+
+    Sub startSimulation()
         Try
             pInfo.FileName = path_Octave
             pInfo.WindowStyle = ProcessWindowStyle.Minimized
@@ -61,10 +173,7 @@ Public Class FormSimulation
             MsgBox("No se encuentra el archivo Octave-CLI")
             Bt_start.Enabled = False
         End Try
-
-        L_load.Text = "C:> Simulación Iniciada"
-
-        System.Threading.Thread.Sleep(3000)
+        System.Threading.Thread.Sleep(5000)
 
         sendOctave("cd '" & Application.StartupPath & "'")
 
@@ -102,15 +211,8 @@ Public Class FormSimulation
             typeResponse = "impulse"
         End If
 
-        L_load.Text += vbCrLf + "C:> Simulación 10%..."
-
         createOctaveFile()
-
-        L_load.Text += vbCrLf + "C:> Simulación 40%..."
-
         sendOctave("octaveFile")
-
-        L_load.Text = "C:> Simulación 60%..."
 
         While Not (File.Exists(Application.StartupPath & "\i.txt"))
 
@@ -118,9 +220,6 @@ Public Class FormSimulation
 
         closeOctave()
         loadData()
-        L_load.Text += vbCrLf + "C:> Simulación 100%"
-        L_load.Text = "C:> Simulación Terminada"
-        L_load.Text += vbCrLf + "C:> Esperando por Nueva Simulación"
 
         'sendOctave("clc")
         'sendOctave("clear")
@@ -165,8 +264,6 @@ Public Class FormSimulation
         'sendOctave("[p,t]=" & typeResponse & "{(}GPZl,tiempo,tiempo/" & cant_elementos & "{)};")
         'sendOctave("dlmwrite{(}'" & Application.StartupPath & "\t.txt',t,'\n'{)};")
         'sendOctave("dlmwrite{(}'" & Application.StartupPath & "\p.txt',p,'\n'{)};")
-
-
     End Sub
 
     Sub createOctaveFile()
@@ -248,7 +345,6 @@ Public Class FormSimulation
         Next
         datosT.Close()
 
-        L_load.Text += vbCrLf + "C:> Simulación 70%..."
         If Cb_animation.Checked Then
             Timer1.Enabled = True
         Else
@@ -259,9 +355,6 @@ Public Class FormSimulation
             Chart_I.Series(0).ToolTip = "#VAL{N2}"
             Chart_P.Series(0).ToolTip = "#VAL{N2}"
             saveSimulationData()
-            L_load.Text = "C:> Simulación 90%..."
-            ' Activar Botones para Nueva Simulacion
-            activateSimulationButtons()
         End If
 
 
@@ -275,17 +368,25 @@ Public Class FormSimulation
             Chart_I.Series(0).ToolTip = "#VAL{N2}"
             Chart_P.Series(0).ToolTip = "#VAL{N2}"
             saveSimulationData()
-            'Activar Botones para Nueva Simulacion
-            activateSimulationButtons()
         End If
     End Sub
 
     Private Sub Tb_MinZ_Scroll(sender As Object, e As EventArgs) Handles Tb_MinZ.Scroll
         L_MinZ.Text = Tb_MinZ.Value.ToString
+        Tb_z.Text = L_MinZ.Text
     End Sub
 
     Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles Tb_MaxZ.Scroll
         L_MaxZ.Text = Tb_MaxZ.Value.ToString
+    End Sub
+
+    Private Sub Tb_MinZL_Scroll(sender As Object, e As EventArgs) Handles Tb_MinZL.Scroll
+        L_MinZL.Text = Tb_MinZL.Value.ToString
+        Tb_zl.Text = L_MinZL.Text
+    End Sub
+
+    Private Sub Tb_MaxZL_Scroll(sender As Object, e As EventArgs) Handles Tb_MaxZL.Scroll
+        L_MaxZL.Text = Tb_MaxZL.Value.ToString
     End Sub
 
     Sub plotPoints()
@@ -304,29 +405,30 @@ Public Class FormSimulation
     Sub saveSimulationData()
         FormSimulationHistory.DGV_SimulationHistory.Rows.Add()
         Dim numberRows = FormSimulationHistory.DGV_SimulationHistory.Rows.Count - 1
-        FormSimulationHistory.DGV_SimulationHistory.Item(0, numberRows).Value = Tb_num.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(1, numberRows).Value = Tb_g.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(2, numberRows).Value = Cb_simulationType.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(0, numberRows).Value = numberRows
+        FormSimulationHistory.DGV_SimulationHistory.Item(1, numberRows).Value = Tb_num.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(2, numberRows).Value = Tb_g.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(3, numberRows).Value = Cb_simulationType.Text
 
-        FormSimulationHistory.DGV_SimulationHistory.Item(3, numberRows).Value = Tb_v.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(4, numberRows).Value = CB_Z.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(5, numberRows).Value = Tb_z.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(6, numberRows).Value = Tb_l.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(7, numberRows).Value = Tb_c.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(8, numberRows).Value = CB_ZL.Text
-        FormSimulationHistory.DGV_SimulationHistory.Item(9, numberRows).Value = Tb_zl.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(4, numberRows).Value = Tb_v.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(5, numberRows).Value = CB_Z.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(6, numberRows).Value = Tb_z.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(7, numberRows).Value = Tb_l.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(8, numberRows).Value = Tb_c.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(9, numberRows).Value = CB_ZL.Text
+        FormSimulationHistory.DGV_SimulationHistory.Item(10, numberRows).Value = Tb_zl.Text
 
         Dim bmpV As New Bitmap(Chart_V.Width, Chart_V.Height)
         Chart_V.DrawToBitmap(bmpV, Chart_V.DisplayRectangle)
-        FormSimulationHistory.DGV_SimulationHistory.Item(10, numberRows).Value = bmpV
+        FormSimulationHistory.DGV_SimulationHistory.Item(11, numberRows).Value = bmpV
 
         Dim bmpI As New Bitmap(Chart_I.Width, Chart_I.Height)
         Chart_I.DrawToBitmap(bmpI, Chart_I.DisplayRectangle)
-        FormSimulationHistory.DGV_SimulationHistory.Item(11, numberRows).Value = bmpI
+        FormSimulationHistory.DGV_SimulationHistory.Item(12, numberRows).Value = bmpI
 
         Dim bmpP As New Bitmap(Chart_P.Width, Chart_P.Height)
         Chart_P.DrawToBitmap(bmpP, Chart_P.DisplayRectangle)
-        FormSimulationHistory.DGV_SimulationHistory.Item(12, numberRows).Value = bmpP
+        FormSimulationHistory.DGV_SimulationHistory.Item(13, numberRows).Value = bmpP
 
     End Sub
 
@@ -338,13 +440,10 @@ Public Class FormSimulation
         Cb_simulationType.Enabled = False
         Tb_num.Enabled = False
         Tb_g.Enabled = False
-
         Tb_MinZ.Enabled = False
         Tb_MaxZ.Enabled = False
         CB_Z.Enabled = False
         NUD_Z.Enabled = False
-
-
         Tb_MinZL.Enabled = False
         Tb_MaxZL.Enabled = False
         CB_ZL.Enabled = False
@@ -359,13 +458,10 @@ Public Class FormSimulation
         Cb_simulationType.Enabled = True
         Tb_num.Enabled = True
         Tb_g.Enabled = True
-
         Tb_MinZ.Enabled = True
         Tb_MaxZ.Enabled = True
         CB_Z.Enabled = True
         NUD_Z.Enabled = True
-
-
         Tb_MinZL.Enabled = True
         Tb_MaxZL.Enabled = True
         CB_ZL.Enabled = True

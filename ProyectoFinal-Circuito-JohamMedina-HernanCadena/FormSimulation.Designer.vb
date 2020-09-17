@@ -75,6 +75,10 @@ Partial Class FormSimulation
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.NUD_ZL = New System.Windows.Forms.NumericUpDown()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
         CType(Me.Chart_V, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart_P, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart_I, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -292,6 +296,7 @@ Partial Class FormSimulation
         Me.Tb_num.Name = "Tb_num"
         Me.Tb_num.Size = New System.Drawing.Size(100, 20)
         Me.Tb_num.TabIndex = 16
+        Me.Tb_num.Text = "100"
         '
         'Tb_g
         '
@@ -299,6 +304,7 @@ Partial Class FormSimulation
         Me.Tb_g.Name = "Tb_g"
         Me.Tb_g.Size = New System.Drawing.Size(100, 20)
         Me.Tb_g.TabIndex = 17
+        Me.Tb_g.Text = "10"
         '
         'Tb_c
         '
@@ -306,6 +312,7 @@ Partial Class FormSimulation
         Me.Tb_c.Name = "Tb_c"
         Me.Tb_c.Size = New System.Drawing.Size(36, 20)
         Me.Tb_c.TabIndex = 18
+        Me.Tb_c.Text = "1"
         '
         'Tb_zl
         '
@@ -320,6 +327,7 @@ Partial Class FormSimulation
         Me.Tb_l.Name = "Tb_l"
         Me.Tb_l.Size = New System.Drawing.Size(36, 20)
         Me.Tb_l.TabIndex = 20
+        Me.Tb_l.Text = "1"
         '
         'Cb_simulationType
         '
@@ -362,14 +370,14 @@ Partial Class FormSimulation
         '
         Me.Tb_MaxZ.LargeChange = 1
         Me.Tb_MaxZ.Location = New System.Drawing.Point(314, 21)
-        Me.Tb_MaxZ.Maximum = 6
-        Me.Tb_MaxZ.Minimum = 3
+        Me.Tb_MaxZ.Maximum = 3
+        Me.Tb_MaxZ.Minimum = 1
         Me.Tb_MaxZ.Name = "Tb_MaxZ"
         Me.Tb_MaxZ.Orientation = System.Windows.Forms.Orientation.Vertical
         Me.Tb_MaxZ.Size = New System.Drawing.Size(45, 57)
         Me.Tb_MaxZ.TabIndex = 24
         Me.Tb_MaxZ.TickStyle = System.Windows.Forms.TickStyle.TopLeft
-        Me.Tb_MaxZ.Value = 6
+        Me.Tb_MaxZ.Value = 3
         '
         'L_MinZ
         '
@@ -389,7 +397,7 @@ Partial Class FormSimulation
         Me.L_MaxZ.Name = "L_MaxZ"
         Me.L_MaxZ.Size = New System.Drawing.Size(16, 16)
         Me.L_MaxZ.TabIndex = 26
-        Me.L_MaxZ.Text = "6"
+        Me.L_MaxZ.Text = "3"
         '
         'Label8
         '
@@ -437,6 +445,7 @@ Partial Class FormSimulation
         Me.Tb_v.Name = "Tb_v"
         Me.Tb_v.Size = New System.Drawing.Size(36, 20)
         Me.Tb_v.TabIndex = 32
+        Me.Tb_v.Text = "1"
         '
         'Label13
         '
@@ -463,13 +472,13 @@ Partial Class FormSimulation
         '
         Me.Tb_MaxZL.LargeChange = 1
         Me.Tb_MaxZL.Location = New System.Drawing.Point(574, 240)
-        Me.Tb_MaxZL.Maximum = 6
-        Me.Tb_MaxZL.Minimum = 3
+        Me.Tb_MaxZL.Maximum = 3
+        Me.Tb_MaxZL.Minimum = 1
         Me.Tb_MaxZL.Name = "Tb_MaxZL"
         Me.Tb_MaxZL.Size = New System.Drawing.Size(57, 45)
         Me.Tb_MaxZL.TabIndex = 38
         Me.Tb_MaxZL.TickStyle = System.Windows.Forms.TickStyle.TopLeft
-        Me.Tb_MaxZL.Value = 6
+        Me.Tb_MaxZL.Value = 3
         '
         'Label10
         '
@@ -489,7 +498,7 @@ Partial Class FormSimulation
         Me.L_MaxZL.Name = "L_MaxZL"
         Me.L_MaxZL.Size = New System.Drawing.Size(16, 16)
         Me.L_MaxZL.TabIndex = 40
-        Me.L_MaxZL.Text = "6"
+        Me.L_MaxZL.Text = "3"
         '
         'L_MinZL
         '
@@ -533,11 +542,55 @@ Partial Class FormSimulation
         Me.NUD_ZL.TabIndex = 44
         Me.NUD_ZL.Value = New Decimal(New Integer() {1, 0, 0, 65536})
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(83, -2)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(78, 18)
+        Me.Label9.TabIndex = 45
+        Me.Label9.Text = "Minimo Z"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(309, -2)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(82, 18)
+        Me.Label11.TabIndex = 46
+        Me.Label11.Text = "Maximo Z"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(574, 278)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(91, 18)
+        Me.Label12.TabIndex = 47
+        Me.Label12.Text = "Maximo ZL"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(571, 121)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(87, 18)
+        Me.Label16.TabIndex = 48
+        Me.Label16.Text = "Minimo ZL"
+        '
         'FormSimulation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1184, 681)
+        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.NUD_ZL)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
@@ -641,4 +694,8 @@ Partial Class FormSimulation
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents NUD_ZL As NumericUpDown
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label16 As Label
 End Class
