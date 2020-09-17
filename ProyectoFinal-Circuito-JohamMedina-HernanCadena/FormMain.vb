@@ -15,18 +15,25 @@ Public Class FormMain
         If folder.ShowDialog() = DialogResult.OK Then
             Try
                 path = folder.SelectedPath & "\mingw64\bin\octave-cli.exe"
-                Dim escritor As StreamWriter
-                My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\ruta.txt")
-                escritor = File.AppendText(Application.StartupPath & "\ruta.txt")
-                escritor.Write(path)
-                escritor.Flush()
-                escritor.Close()
-                path_Octave = path
-                Bt_simulation.Enabled = True
-                Bt_simulationHistory.Enabled = True
-                FormSimulation.Bt_start.Enabled = True
-                MsgBox("Ruta Seleccionada:  " & path & vbCrLf & vbCrLf &
-                       "Para simular dar click en el boton de SIMULADOR")
+                If File.Exists(path) Then
+                    Dim escritor As StreamWriter
+                    My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\ruta.txt")
+                    escritor = File.AppendText(Application.StartupPath & "\ruta.txt")
+                    escritor.Write(path)
+                    escritor.Flush()
+                    escritor.Close()
+                    path_Octave = path
+                    Bt_simulation.Enabled = True
+                    Bt_simulationHistory.Enabled = True
+                    FormSimulation.Bt_start.Enabled = True
+
+                    MsgBox("Ruta Seleccionada:  " & path & vbCrLf & vbCrLf &
+                           "Para simular dar click en el boton de SIMULADOR")
+                Else
+                    MsgBox("Error con la ruta de OCTAVE, por favor intente otra vez")
+                    FormSimulation.Bt_start.Enabled = False
+                End If
+
             Catch ex As Exception
                 MsgBox("Error con la ruta de OCTAVE, por favor intente otra vez")
                 FormSimulation.Bt_start.Enabled = False
@@ -54,5 +61,6 @@ Public Class FormMain
         Bt_simulation.Enabled = False
         Bt_simulationHistory.Enabled = False
     End Sub
+
 
 End Class

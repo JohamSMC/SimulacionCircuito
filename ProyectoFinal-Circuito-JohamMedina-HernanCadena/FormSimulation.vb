@@ -95,7 +95,9 @@ Public Class FormSimulation
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Bt_start.Click
         'Desactivar los botones para la simulación
+        Dim c As Cursor = Me.Cursor
         disableSimulationButtons()
+        Me.Cursor = Cursors.WaitCursor
         If validateCircut() Then
             Dim iteracionesTotales As Integer
             Dim iteracionActual As Integer
@@ -158,9 +160,11 @@ Public Class FormSimulation
             L_load.Text = "C:> Simulación Terminada"
             L_load.Text += vbCrLf & "C:> Esperando por Nueva Simulación"
 
-            'Activar Botones para Nueva Simulacion
-            activateSimulationButtons()
+
         End If
+        'Activar Botones para Nueva Simulacion
+        activateSimulationButtons()
+        Me.Cursor = c
     End Sub
 
     Sub startSimulation()
@@ -215,7 +219,7 @@ Public Class FormSimulation
         sendOctave("octaveFile")
 
         While Not (File.Exists(Application.StartupPath & "\i.txt"))
-
+            System.Threading.Thread.Sleep(2000)
         End While
 
         closeOctave()
@@ -371,22 +375,72 @@ Public Class FormSimulation
         End If
     End Sub
 
+    Private Sub Tb_v_TextChanged(sender As Object, e As EventArgs) Handles Tb_v.TextChanged
+        If Not IsNumeric(Tb_v.Text) Or Val(Tb_v.Text) < 1 Then
+            Tb_v.Text = 1
+        End If
+    End Sub
+
+    Private Sub Tb_z_TextChanged(sender As Object, e As EventArgs) Handles Tb_z.TextChanged
+        If Not IsNumeric(Tb_z.Text) Or Val(Tb_z.Text) < 1 Then
+            Tb_z.Text = 1
+        End If
+    End Sub
+
+    Private Sub Tb_l_TextChanged(sender As Object, e As EventArgs) Handles Tb_l.TextChanged
+        If Not IsNumeric(Tb_l.Text) Or Val(Tb_l.Text) < 1 Then
+            Tb_l.Text = 1
+        End If
+    End Sub
+
+    Private Sub Tb_c_TextChanged(sender As Object, e As EventArgs) Handles Tb_c.TextChanged
+        If Not IsNumeric(Tb_c.Text) Or Val(Tb_c.Text) < 1 Then
+            Tb_c.Text = 1
+        End If
+    End Sub
+
+    Private Sub Tb_zl_TextChanged(sender As Object, e As EventArgs) Handles Tb_zl.TextChanged
+        If Not IsNumeric(Tb_zl.Text) Or Val(Tb_zl.Text) < 1 Then
+            Tb_zl.Text = 1
+        End If
+    End Sub
+
     Private Sub Tb_MinZ_Scroll(sender As Object, e As EventArgs) Handles Tb_MinZ.Scroll
         L_MinZ.Text = Tb_MinZ.Value.ToString
         Tb_z.Text = L_MinZ.Text
+        If Tb_MinZ.Value = Tb_MaxZ.Value Then
+            NUD_Z.Enabled = False
+        Else
+            NUD_Z.Enabled = True
+        End If
     End Sub
 
     Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles Tb_MaxZ.Scroll
         L_MaxZ.Text = Tb_MaxZ.Value.ToString
+        If Tb_MinZ.Value = Tb_MaxZ.Value Then
+            NUD_Z.Enabled = False
+        Else
+            NUD_Z.Enabled = True
+        End If
     End Sub
 
     Private Sub Tb_MinZL_Scroll(sender As Object, e As EventArgs) Handles Tb_MinZL.Scroll
         L_MinZL.Text = Tb_MinZL.Value.ToString
         Tb_zl.Text = L_MinZL.Text
+        If Tb_MinZL.Value = Tb_MaxZL.Value Then
+            NUD_ZL.Enabled = False
+        Else
+            NUD_ZL.Enabled = True
+        End If
     End Sub
 
     Private Sub Tb_MaxZL_Scroll(sender As Object, e As EventArgs) Handles Tb_MaxZL.Scroll
         L_MaxZL.Text = Tb_MaxZL.Value.ToString
+        If Tb_MinZL.Value = Tb_MaxZL.Value Then
+            NUD_ZL.Enabled = False
+        Else
+            NUD_ZL.Enabled = True
+        End If
     End Sub
 
     Sub plotPoints()
@@ -405,7 +459,7 @@ Public Class FormSimulation
     Sub saveSimulationData()
         FormSimulationHistory.DGV_SimulationHistory.Rows.Add()
         Dim numberRows = FormSimulationHistory.DGV_SimulationHistory.Rows.Count - 1
-        FormSimulationHistory.DGV_SimulationHistory.Item(0, numberRows).Value = numberRows
+        FormSimulationHistory.DGV_SimulationHistory.Item(0, numberRows).Value = numberRows + 1
         FormSimulationHistory.DGV_SimulationHistory.Item(1, numberRows).Value = Tb_num.Text
         FormSimulationHistory.DGV_SimulationHistory.Item(2, numberRows).Value = Tb_g.Text
         FormSimulationHistory.DGV_SimulationHistory.Item(3, numberRows).Value = Cb_simulationType.Text
@@ -448,6 +502,11 @@ Public Class FormSimulation
         Tb_MaxZL.Enabled = False
         CB_ZL.Enabled = False
         NUD_ZL.Enabled = False
+        FormMain.Bt_simulationHistory.Enabled = False
+        FormMain.Bt_pathOctave.Enabled = False
+        FormMain.Bt_simulation.Enabled = False
+        FormMain.Bt_exit.Enabled = False
+
     End Sub
 
     Sub activateSimulationButtons()
@@ -466,6 +525,10 @@ Public Class FormSimulation
         Tb_MaxZL.Enabled = True
         CB_ZL.Enabled = True
         NUD_ZL.Enabled = True
+        FormMain.Bt_simulationHistory.Enabled = True
+        FormMain.Bt_pathOctave.Enabled = True
+        FormMain.Bt_simulation.Enabled = True
+        FormMain.Bt_exit.Enabled = True
     End Sub
 
 End Class

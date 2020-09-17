@@ -23,15 +23,15 @@ Partial Class FormSimulation
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea13 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series13 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title13 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea14 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series14 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title14 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea15 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series15 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title15 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormSimulation))
         Me.Chart_V = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart_P = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -72,13 +72,13 @@ Partial Class FormSimulation
         Me.Label10 = New System.Windows.Forms.Label()
         Me.L_MaxZL = New System.Windows.Forms.Label()
         Me.L_MinZL = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.NUD_ZL = New System.Windows.Forms.NumericUpDown()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
         CType(Me.Chart_V, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart_P, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart_I, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,71 +96,71 @@ Partial Class FormSimulation
         'Chart_V
         '
         Me.Chart_V.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        ChartArea1.AxisX.Title = "Tiempo(t)"
-        ChartArea1.AxisY.Title = "Voltaje(V)"
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart_V.ChartAreas.Add(ChartArea1)
+        ChartArea13.AxisX.Title = "Tiempo(t)"
+        ChartArea13.AxisY.Title = "Voltaje(V)"
+        ChartArea13.Name = "ChartArea1"
+        Me.Chart_V.ChartAreas.Add(ChartArea13)
         Me.Chart_V.Location = New System.Drawing.Point(12, 399)
         Me.Chart_V.Name = "Chart_V"
-        Series1.BorderWidth = 3
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series1.Color = System.Drawing.Color.ForestGreen
-        Series1.Name = "Series1"
-        Me.Chart_V.Series.Add(Series1)
+        Series13.BorderWidth = 3
+        Series13.ChartArea = "ChartArea1"
+        Series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series13.Color = System.Drawing.Color.ForestGreen
+        Series13.Name = "Series1"
+        Me.Chart_V.Series.Add(Series13)
         Me.Chart_V.Size = New System.Drawing.Size(330, 250)
         Me.Chart_V.TabIndex = 0
         Me.Chart_V.Text = "Voltaje"
-        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title1.Name = "Title1"
-        Title1.Text = "Voltaje"
-        Me.Chart_V.Titles.Add(Title1)
+        Title13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title13.Name = "Title1"
+        Title13.Text = "Voltaje"
+        Me.Chart_V.Titles.Add(Title13)
         '
         'Chart_P
         '
         Me.Chart_P.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea2.AxisX.Title = "Tiempo(t)"
-        ChartArea2.AxisY.Title = "Potencia(W)"
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart_P.ChartAreas.Add(ChartArea2)
+        ChartArea14.AxisX.Title = "Tiempo(t)"
+        ChartArea14.AxisY.Title = "Potencia(W)"
+        ChartArea14.Name = "ChartArea1"
+        Me.Chart_P.ChartAreas.Add(ChartArea14)
         Me.Chart_P.Location = New System.Drawing.Point(842, 399)
         Me.Chart_P.Name = "Chart_P"
-        Series2.BorderWidth = 3
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series2.Color = System.Drawing.Color.Blue
-        Series2.Name = "Series1"
-        Me.Chart_P.Series.Add(Series2)
+        Series14.BorderWidth = 3
+        Series14.ChartArea = "ChartArea1"
+        Series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series14.Color = System.Drawing.Color.Blue
+        Series14.Name = "Series1"
+        Me.Chart_P.Series.Add(Series14)
         Me.Chart_P.Size = New System.Drawing.Size(330, 250)
         Me.Chart_P.TabIndex = 1
         Me.Chart_P.Text = "Potencia"
-        Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title2.Name = "Title1"
-        Title2.Text = "Potencia"
-        Me.Chart_P.Titles.Add(Title2)
+        Title14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title14.Name = "Title1"
+        Title14.Text = "Potencia"
+        Me.Chart_P.Titles.Add(Title14)
         '
         'Chart_I
         '
         Me.Chart_I.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        ChartArea3.AxisX.Title = "Tiempo(t)"
-        ChartArea3.AxisY.Title = "Corriente(A)"
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart_I.ChartAreas.Add(ChartArea3)
+        ChartArea15.AxisX.Title = "Tiempo(t)"
+        ChartArea15.AxisY.Title = "Corriente(A)"
+        ChartArea15.Name = "ChartArea1"
+        Me.Chart_I.ChartAreas.Add(ChartArea15)
         Me.Chart_I.Location = New System.Drawing.Point(426, 399)
         Me.Chart_I.Name = "Chart_I"
-        Series3.BorderWidth = 3
-        Series3.ChartArea = "ChartArea1"
-        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series3.Color = System.Drawing.Color.Red
-        Series3.Name = "Series1"
-        Me.Chart_I.Series.Add(Series3)
+        Series15.BorderWidth = 3
+        Series15.ChartArea = "ChartArea1"
+        Series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series15.Color = System.Drawing.Color.Red
+        Series15.Name = "Series1"
+        Me.Chart_I.Series.Add(Series15)
         Me.Chart_I.Size = New System.Drawing.Size(330, 250)
         Me.Chart_I.TabIndex = 2
         Me.Chart_I.Text = "Corriente"
-        Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title3.Name = "Title1"
-        Title3.Text = "Corriente"
-        Me.Chart_I.Titles.Add(Title3)
+        Title15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title15.Name = "Title1"
+        Title15.Text = "Corriente"
+        Me.Chart_I.Titles.Add(Title15)
         '
         'PictureBox1
         '
@@ -191,6 +191,7 @@ Partial Class FormSimulation
         '
         'CB_Z
         '
+        Me.CB_Z.BackColor = System.Drawing.Color.Linen
         Me.CB_Z.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_Z.FormattingEnabled = True
         Me.CB_Z.Items.AddRange(New Object() {"Resistencia", "Condensador", "Bobina"})
@@ -212,52 +213,53 @@ Partial Class FormSimulation
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Maiandra GD", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(154, 110)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(26, 25)
+        Me.Label1.Size = New System.Drawing.Size(19, 19)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Z"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Maiandra GD", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(698, 187)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 25)
+        Me.Label2.Size = New System.Drawing.Size(27, 19)
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "ZL"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Maiandra GD", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(445, 196)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(28, 25)
+        Me.Label3.Size = New System.Drawing.Size(21, 19)
         Me.Label3.TabIndex = 10
         Me.Label3.Text = "C"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Maiandra GD", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(359, 102)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(25, 25)
+        Me.Label4.Size = New System.Drawing.Size(17, 19)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "L"
         '
         'Bt_start
         '
+        Me.Bt_start.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Bt_start.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Bt_start.Location = New System.Drawing.Point(839, 21)
         Me.Bt_start.Name = "Bt_start"
         Me.Bt_start.Size = New System.Drawing.Size(241, 50)
         Me.Bt_start.TabIndex = 12
         Me.Bt_start.Text = "SIMULAR"
-        Me.Bt_start.UseVisualStyleBackColor = True
+        Me.Bt_start.UseVisualStyleBackColor = False
         '
         'Cb_animation
         '
@@ -273,38 +275,40 @@ Partial Class FormSimulation
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(838, 240)
+        Me.Label5.Font = New System.Drawing.Font("Maiandra GD", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(846, 242)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(25, 25)
+        Me.Label5.Size = New System.Drawing.Size(70, 19)
         Me.Label5.TabIndex = 14
-        Me.Label5.Text = "#"
+        Me.Label5.Text = "# Datos"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(834, 278)
+        Me.Label6.Font = New System.Drawing.Font("Maiandra GD", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(834, 283)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(29, 25)
+        Me.Label6.Size = New System.Drawing.Size(82, 19)
         Me.Label6.TabIndex = 15
-        Me.Label6.Text = "G"
+        Me.Label6.Text = "Ganancia"
         '
         'Tb_num
         '
-        Me.Tb_num.Location = New System.Drawing.Point(883, 241)
+        Me.Tb_num.Location = New System.Drawing.Point(932, 241)
         Me.Tb_num.Name = "Tb_num"
-        Me.Tb_num.Size = New System.Drawing.Size(100, 20)
+        Me.Tb_num.Size = New System.Drawing.Size(51, 20)
         Me.Tb_num.TabIndex = 16
         Me.Tb_num.Text = "100"
+        Me.Tb_num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Tb_g
         '
-        Me.Tb_g.Location = New System.Drawing.Point(883, 283)
+        Me.Tb_g.Location = New System.Drawing.Point(932, 283)
         Me.Tb_g.Name = "Tb_g"
-        Me.Tb_g.Size = New System.Drawing.Size(100, 20)
+        Me.Tb_g.Size = New System.Drawing.Size(51, 20)
         Me.Tb_g.TabIndex = 17
         Me.Tb_g.Text = "10"
+        Me.Tb_g.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Tb_c
         '
@@ -313,13 +317,15 @@ Partial Class FormSimulation
         Me.Tb_c.Size = New System.Drawing.Size(36, 20)
         Me.Tb_c.TabIndex = 18
         Me.Tb_c.Text = "1"
+        Me.Tb_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Tb_zl
         '
-        Me.Tb_zl.Location = New System.Drawing.Point(742, 271)
+        Me.Tb_zl.Location = New System.Drawing.Point(733, 271)
         Me.Tb_zl.Name = "Tb_zl"
         Me.Tb_zl.Size = New System.Drawing.Size(36, 20)
         Me.Tb_zl.TabIndex = 19
+        Me.Tb_zl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Tb_l
         '
@@ -328,6 +334,7 @@ Partial Class FormSimulation
         Me.Tb_l.Size = New System.Drawing.Size(36, 20)
         Me.Tb_l.TabIndex = 20
         Me.Tb_l.Text = "1"
+        Me.Tb_l.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Cb_simulationType
         '
@@ -369,7 +376,7 @@ Partial Class FormSimulation
         'Tb_MaxZ
         '
         Me.Tb_MaxZ.LargeChange = 1
-        Me.Tb_MaxZ.Location = New System.Drawing.Point(314, 21)
+        Me.Tb_MaxZ.Location = New System.Drawing.Point(314, 14)
         Me.Tb_MaxZ.Maximum = 3
         Me.Tb_MaxZ.Minimum = 1
         Me.Tb_MaxZ.Name = "Tb_MaxZ"
@@ -382,6 +389,7 @@ Partial Class FormSimulation
         'L_MinZ
         '
         Me.L_MinZ.AutoSize = True
+        Me.L_MinZ.BackColor = System.Drawing.Color.OldLace
         Me.L_MinZ.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.L_MinZ.Location = New System.Drawing.Point(203, 21)
         Me.L_MinZ.Name = "L_MinZ"
@@ -392,6 +400,7 @@ Partial Class FormSimulation
         'L_MaxZ
         '
         Me.L_MaxZ.AutoSize = True
+        Me.L_MaxZ.BackColor = System.Drawing.Color.OldLace
         Me.L_MaxZ.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.L_MaxZ.Location = New System.Drawing.Point(229, 21)
         Me.L_MaxZ.Name = "L_MaxZ"
@@ -427,6 +436,7 @@ Partial Class FormSimulation
         Me.Tb_z.Name = "Tb_z"
         Me.Tb_z.Size = New System.Drawing.Size(42, 20)
         Me.Tb_z.TabIndex = 30
+        Me.Tb_z.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'L_load
         '
@@ -441,19 +451,21 @@ Partial Class FormSimulation
         '
         'Tb_v
         '
-        Me.Tb_v.Location = New System.Drawing.Point(111, 224)
+        Me.Tb_v.Font = New System.Drawing.Font("Maiandra GD", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tb_v.Location = New System.Drawing.Point(12, 181)
         Me.Tb_v.Name = "Tb_v"
-        Me.Tb_v.Size = New System.Drawing.Size(36, 20)
+        Me.Tb_v.Size = New System.Drawing.Size(33, 23)
         Me.Tb_v.TabIndex = 32
         Me.Tb_v.Text = "1"
+        Me.Tb_v.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(106, 196)
+        Me.Label13.Font = New System.Drawing.Font("Maiandra GD", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(21, 155)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(27, 25)
+        Me.Label13.Size = New System.Drawing.Size(21, 19)
         Me.Label13.TabIndex = 36
         Me.Label13.Text = "V"
         '
@@ -493,6 +505,7 @@ Partial Class FormSimulation
         'L_MaxZL
         '
         Me.L_MaxZL.AutoSize = True
+        Me.L_MaxZL.BackColor = System.Drawing.Color.OldLace
         Me.L_MaxZL.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.L_MaxZL.Location = New System.Drawing.Point(600, 200)
         Me.L_MaxZL.Name = "L_MaxZL"
@@ -503,6 +516,7 @@ Partial Class FormSimulation
         'L_MinZL
         '
         Me.L_MinZL.AutoSize = True
+        Me.L_MinZL.BackColor = System.Drawing.Color.OldLace
         Me.L_MinZL.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.L_MinZL.Location = New System.Drawing.Point(574, 200)
         Me.L_MinZL.Name = "L_MinZL"
@@ -510,23 +524,13 @@ Partial Class FormSimulation
         Me.L_MinZL.TabIndex = 39
         Me.L_MinZL.Text = "1"
         '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(698, 249)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(68, 16)
-        Me.Label14.TabIndex = 42
-        Me.Label14.Text = "Intervalo"
-        '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(156, 146)
+        Me.Label15.Font = New System.Drawing.Font("Maiandra GD", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(169, 144)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(68, 16)
+        Me.Label15.Size = New System.Drawing.Size(58, 16)
         Me.Label15.TabIndex = 43
         Me.Label15.Text = "Intervalo"
         '
@@ -534,7 +538,7 @@ Partial Class FormSimulation
         '
         Me.NUD_ZL.DecimalPlaces = 1
         Me.NUD_ZL.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NUD_ZL.Location = New System.Drawing.Point(772, 247)
+        Me.NUD_ZL.Location = New System.Drawing.Point(756, 247)
         Me.NUD_ZL.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NUD_ZL.Minimum = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.NUD_ZL.Name = "NUD_ZL"
@@ -545,55 +549,66 @@ Partial Class FormSimulation
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(83, -2)
+        Me.Label9.Font = New System.Drawing.Font("Maiandra GD", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(74, 3)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(78, 18)
+        Me.Label9.Size = New System.Drawing.Size(73, 18)
         Me.Label9.TabIndex = 45
         Me.Label9.Text = "Minimo Z"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(309, -2)
+        Me.Label11.Font = New System.Drawing.Font("Maiandra GD", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(297, 3)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(82, 18)
+        Me.Label11.Size = New System.Drawing.Size(76, 18)
         Me.Label11.TabIndex = 46
         Me.Label11.Text = "Maximo Z"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(574, 278)
+        Me.Label12.Font = New System.Drawing.Font("Maiandra GD", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(569, 271)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(91, 18)
+        Me.Label12.Size = New System.Drawing.Size(83, 18)
         Me.Label12.TabIndex = 47
         Me.Label12.Text = "Maximo ZL"
         '
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(571, 121)
+        Me.Label16.Font = New System.Drawing.Font("Maiandra GD", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(563, 124)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(87, 18)
+        Me.Label16.Size = New System.Drawing.Size(80, 18)
         Me.Label16.TabIndex = 48
         Me.Label16.Text = "Minimo ZL"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Maiandra GD", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(698, 247)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(58, 16)
+        Me.Label14.TabIndex = 43
+        Me.Label14.Text = "Intervalo"
         '
         'FormSimulation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Moccasin
         Me.ClientSize = New System.Drawing.Size(1184, 681)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.NUD_ZL)
-        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.L_MaxZL)
         Me.Controls.Add(Me.L_MinZL)
@@ -691,11 +706,11 @@ Partial Class FormSimulation
     Friend WithEvents Label10 As Label
     Friend WithEvents L_MaxZL As Label
     Friend WithEvents L_MinZL As Label
-    Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents NUD_ZL As NumericUpDown
     Friend WithEvents Label9 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label16 As Label
+    Friend WithEvents Label14 As Label
 End Class
