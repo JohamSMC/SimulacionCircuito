@@ -23,15 +23,15 @@ Partial Class FormSimulation
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea13 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series13 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title13 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea14 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series14 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title14 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea15 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series15 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title15 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormSimulation))
         Me.Chart_V = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart_P = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -96,71 +96,77 @@ Partial Class FormSimulation
         'Chart_V
         '
         Me.Chart_V.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        ChartArea13.AxisX.Title = "Tiempo(t)"
-        ChartArea13.AxisY.Title = "Voltaje(V)"
-        ChartArea13.Name = "ChartArea1"
-        Me.Chart_V.ChartAreas.Add(ChartArea13)
+        ChartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot
+        ChartArea1.AxisX.Title = "Tiempo(t)"
+        ChartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot
+        ChartArea1.AxisY.Title = "Voltaje(V)"
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart_V.ChartAreas.Add(ChartArea1)
         Me.Chart_V.Location = New System.Drawing.Point(12, 399)
         Me.Chart_V.Name = "Chart_V"
-        Series13.BorderWidth = 3
-        Series13.ChartArea = "ChartArea1"
-        Series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series13.Color = System.Drawing.Color.ForestGreen
-        Series13.Name = "Series1"
-        Me.Chart_V.Series.Add(Series13)
+        Series1.BorderWidth = 3
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series1.Color = System.Drawing.Color.ForestGreen
+        Series1.Name = "Series1"
+        Me.Chart_V.Series.Add(Series1)
         Me.Chart_V.Size = New System.Drawing.Size(330, 250)
         Me.Chart_V.TabIndex = 0
         Me.Chart_V.Text = "Voltaje"
-        Title13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title13.Name = "Title1"
-        Title13.Text = "Voltaje"
-        Me.Chart_V.Titles.Add(Title13)
+        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title1.Name = "Title1"
+        Title1.Text = "Voltaje"
+        Me.Chart_V.Titles.Add(Title1)
         '
         'Chart_P
         '
         Me.Chart_P.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea14.AxisX.Title = "Tiempo(t)"
-        ChartArea14.AxisY.Title = "Potencia(W)"
-        ChartArea14.Name = "ChartArea1"
-        Me.Chart_P.ChartAreas.Add(ChartArea14)
+        ChartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot
+        ChartArea2.AxisX.Title = "Tiempo(t)"
+        ChartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot
+        ChartArea2.AxisY.Title = "Potencia(W)"
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart_P.ChartAreas.Add(ChartArea2)
         Me.Chart_P.Location = New System.Drawing.Point(842, 399)
         Me.Chart_P.Name = "Chart_P"
-        Series14.BorderWidth = 3
-        Series14.ChartArea = "ChartArea1"
-        Series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series14.Color = System.Drawing.Color.Blue
-        Series14.Name = "Series1"
-        Me.Chart_P.Series.Add(Series14)
+        Series2.BorderWidth = 3
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series2.Color = System.Drawing.Color.Blue
+        Series2.Name = "Series1"
+        Me.Chart_P.Series.Add(Series2)
         Me.Chart_P.Size = New System.Drawing.Size(330, 250)
         Me.Chart_P.TabIndex = 1
         Me.Chart_P.Text = "Potencia"
-        Title14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title14.Name = "Title1"
-        Title14.Text = "Potencia"
-        Me.Chart_P.Titles.Add(Title14)
+        Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title2.Name = "Title1"
+        Title2.Text = "Potencia"
+        Me.Chart_P.Titles.Add(Title2)
         '
         'Chart_I
         '
         Me.Chart_I.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        ChartArea15.AxisX.Title = "Tiempo(t)"
-        ChartArea15.AxisY.Title = "Corriente(A)"
-        ChartArea15.Name = "ChartArea1"
-        Me.Chart_I.ChartAreas.Add(ChartArea15)
+        ChartArea3.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot
+        ChartArea3.AxisX.Title = "Tiempo(t)"
+        ChartArea3.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot
+        ChartArea3.AxisY.Title = "Corriente(A)"
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart_I.ChartAreas.Add(ChartArea3)
         Me.Chart_I.Location = New System.Drawing.Point(426, 399)
         Me.Chart_I.Name = "Chart_I"
-        Series15.BorderWidth = 3
-        Series15.ChartArea = "ChartArea1"
-        Series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series15.Color = System.Drawing.Color.Red
-        Series15.Name = "Series1"
-        Me.Chart_I.Series.Add(Series15)
+        Series3.BorderWidth = 3
+        Series3.ChartArea = "ChartArea1"
+        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series3.Color = System.Drawing.Color.Red
+        Series3.Name = "Series1"
+        Me.Chart_I.Series.Add(Series3)
         Me.Chart_I.Size = New System.Drawing.Size(330, 250)
         Me.Chart_I.TabIndex = 2
         Me.Chart_I.Text = "Corriente"
-        Title15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title15.Name = "Title1"
-        Title15.Text = "Corriente"
-        Me.Chart_I.Titles.Add(Title15)
+        Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title3.Name = "Title1"
+        Title3.Text = "Corriente"
+        Me.Chart_I.Titles.Add(Title3)
         '
         'PictureBox1
         '
@@ -214,7 +220,7 @@ Partial Class FormSimulation
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Maiandra GD", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(154, 110)
+        Me.Label1.Location = New System.Drawing.Point(161, 116)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(19, 19)
         Me.Label1.TabIndex = 8
