@@ -165,6 +165,10 @@ Public Class FormSimulation
         'Activar Botones para Nueva Simulacion
         activateSimulationButtons()
         Me.Cursor = c
+        FormSimulationHistory.MdiParent = FormMain
+        FormSimulationHistory.Show()
+        Me.WindowState = FormWindowState.Minimized
+        FormSimulationHistory.WindowState = FormWindowState.Maximized
     End Sub
 
     Sub startSimulation()

@@ -28,7 +28,11 @@ Public Class FormMain
                     FormSimulation.Bt_start.Enabled = True
 
                     MsgBox("Ruta Seleccionada:  " & path & vbCrLf & vbCrLf &
-                           "Para simular dar click en el boton de SIMULADOR")
+                           "Para simular dar click en el boton de SIMULAR")
+                    FormSimulation.MdiParent = Me
+                    FormSimulation.Show()
+                    FormSimulation.WindowState = FormWindowState.Maximized
+                    FormSimulationHistory.WindowState = FormWindowState.Minimized
                 Else
                     MsgBox("Error con la ruta de OCTAVE, por favor intente otra vez")
                     FormSimulation.Bt_start.Enabled = False
