@@ -13,6 +13,11 @@ Simulador desarrollado por :
 >  "Blo Mayús" desactivada, es decir, la escritura
 >	del teclado debe estar "modo minisculas"
 
+# Descargar Ejecutable
+
+Para descargar archivo ejecutable de la aplicación pulse [aquí](https://github.com/JohamSMC/SimulacionCircuito/releases/download/v1.0/SimuladorCircuito.rar)
+
+
 # Demo
 
 ![Demo-SimulacionCircuito-FINAL](https://user-images.githubusercontent.com/37983099/93552174-6e758580-f935-11ea-8fad-d46529fe5ab1.gif)
